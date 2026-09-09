@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 7. Navigation & Mobile Drawer
   initNavigation();
+  initSmartNavbar();
 
   // 8. Lenis Smooth Inertial Scroll (Framer-style slow scroll)
   initLenisSmoothScroll();
@@ -165,10 +166,26 @@ async function handleWaitlistSubmit(e, formType) {
   const originalText = btnText ? btnText.textContent : 'Join waitlist';
   if (btnText) btnText.textContent = 'Joining...';
 
-  // 1. Determine local queue position
+  // 1. Determine realistic queue position (starting from 102: 101 + existing_count + 1)
   const waitlistLocal = JSON.parse(localStorage.getItem('tailorify_waitlist') || '[]');
   const isAlreadyOnList = waitlistLocal.some((entry) => entry.email.toLowerCase() === email.toLowerCase());
-  let queuePosition = 1428 + waitlistLocal.length + 1;
+
+  let existingCount = waitlistLocal.length;
+  if (supabaseClient) {
+    try {
+      const { count, error: countErr } = await supabaseClient
+        .from('waitlist')
+        .select('*', { count: 'exact', head: true });
+      if (!countErr && typeof count === 'number') {
+        existingCount = count;
+      }
+    } catch (cErr) {
+      console.warn('Talorify: Could not query waitlist count:', cErr);
+    }
+  }
+
+  // Realistic queue: starts at 102, then 103, 104, etc.
+  let queuePosition = 101 + existingCount + 1;
 
   // 2. Insert into Supabase 'waitlist' table
   let supabaseSuccess = false;
@@ -503,6 +520,56 @@ function initNavigation() {
       }
     });
   });
+}
+
+/* ==========================================================================
+   SMART HIDE/SHOW NAVBAR ON SCROLL
+   ========================================================================== */
+function initSmartNavbar() {
+  const header = document.querySelector('.site-header');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (!header) return;
+
+  let lastScrollY = window.pageYOffset || document.documentElement.scrollTop;
+  let ticking = false;
+
+  const updateNav = (scrollY) => {
+    // If mobile menu drawer is open, keep navbar visible
+    if (mobileMenu && mobileMenu.classList.contains('open')) {
+      header.classList.remove('nav-hidden');
+      header.classList.add('nav-visible');
+      return;
+    }
+
+    if (scrollY <= 30) {
+      header.classList.remove('is-scrolled');
+      header.classList.remove('nav-hidden');
+      header.classList.add('nav-visible');
+    } else {
+      header.classList.add('is-scrolled');
+
+      if (scrollY > lastScrollY + 6 && scrollY > 70) {
+        // Scrolling DOWN -> hide navbar
+        header.classList.add('nav-hidden');
+        header.classList.remove('nav-visible');
+      } else if (scrollY < lastScrollY - 6) {
+        // Scrolling UP -> reveal navbar
+        header.classList.remove('nav-hidden');
+        header.classList.add('nav-visible');
+      }
+    }
+
+    lastScrollY = scrollY;
+    ticking = false;
+  };
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+      window.requestAnimationFrame(() => updateNav(scrollY));
+      ticking = true;
+    }
+  }, { passive: true });
 }
 
 /* ==========================================================================

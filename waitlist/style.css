@@ -253,14 +253,33 @@ button, input, textarea {
    NAVIGATION HEADER
    ========================================================================== */
 .site-header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 50;
+  z-index: 100;
   background: transparent;
-  padding: 24px 0;
+  padding: 22px 0;
   animation: headerSlideDown 0.7s var(--ease-spring) backwards;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+  will-change: transform;
+}
+
+.site-header.is-scrolled {
+  background: rgba(251, 251, 243, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 14px 0;
+}
+
+.site-header.nav-hidden {
+  transform: translateY(-100%);
+}
+
+.site-header.nav-visible {
+  transform: translateY(0);
 }
 
 @keyframes headerSlideDown {
@@ -516,6 +535,7 @@ button, input, textarea {
   line-height: 1.15;
   letter-spacing: -0.02em;
   color: var(--color-text-primary);
+  text-wrap: balance;
 }
 
 .how-desc-col {
@@ -532,6 +552,7 @@ button, input, textarea {
   line-height: 1.6;
   color: var(--color-text-muted);
   max-width: 440px;
+  text-wrap: pretty;
 }
 
 /* Interactive 3-Step Component */
@@ -621,6 +642,22 @@ button, input, textarea {
   font-weight: 400;
   line-height: 1.55;
   color: var(--color-text-secondary);
+}
+
+/* Mobile Embedded Step Visual (hidden on desktop) */
+.step-mobile-visual {
+  display: none;
+}
+
+.step-mobile-img {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  margin: 12px auto 4px;
+  display: block;
+  border-radius: 16px;
+  box-shadow: none !important;
+  border: none !important;
 }
 
 /* Right Column: Step Image Frame */
@@ -1295,7 +1332,8 @@ button, input, textarea {
   .how-header-row {
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
+    gap: 14px;
+    margin-bottom: 28px;
   }
   
   .how-desc-col {
@@ -1305,18 +1343,58 @@ button, input, textarea {
   
   .how-steps-interactive {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 14px;
   }
   
-  .step-image-frame {
-    min-height: 320px;
-    max-height: 360px;
+  /* Hide the separate bottom image container on mobile */
+  .step-visual-display {
+    display: none !important;
+  }
+
+  /* Mobile accordion step card styling (no shadow) */
+  .step-card-tab {
+    box-shadow: none !important;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    padding: 20px 22px;
+  }
+
+  .step-card-tab:hover:not(.active) {
+    transform: none;
+  }
+
+  .step-card-tab.active {
+    box-shadow: none !important;
+    transform: none;
+    background-color: var(--color-step-active);
+  }
+
+  .step-card-tab.active .step-desc-wrapper {
+    max-height: 650px;
+    opacity: 1;
+  }
+
+  /* Show embedded image inside the opened step accordion */
+  .step-mobile-visual {
+    display: block;
+    margin-top: 14px;
+    text-align: center;
+  }
+
+  .step-mobile-img {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    margin: 10px auto 2px;
+    display: block;
+    border-radius: 16px;
+    box-shadow: none !important;
+    border: none !important;
   }
 }
 
 @media (max-width: 768px) {
   .header-container {
-    padding: 0 24px;
+    padding: 0 20px;
   }
   
   .nav-links,
@@ -1327,16 +1405,87 @@ button, input, textarea {
   .mobile-toggle {
     display: flex;
   }
+
+  .desktop-br {
+    display: none;
+  }
   
+  /* Fit background cleanly on mobile without cropping clouds */
   .hero-section {
-    padding-top: 140px;
-    padding-bottom: 120px;
+    padding-top: 120px;
+    padding-bottom: 60px;
+    background-size: 100% auto;
+    background-position: center top;
+    background-repeat: no-repeat;
+  }
+
+  .hero-title {
+    font-size: clamp(2.1rem, 7.8vw, 2.75rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    margin-bottom: 14px;
+  }
+
+  .hero-subtitle {
+    font-size: 1.02rem;
+    line-height: 1.55;
+    text-wrap: pretty;
+    margin-bottom: 24px;
+    padding: 0 6px;
+  }
+
+  .how-main-title {
+    font-size: clamp(1.8rem, 6.8vw, 2.35rem);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  .how-side-text {
+    font-size: 0.98rem;
+    line-height: 1.55;
+    text-wrap: pretty;
+  }
+
+  .how-it-works-section {
+    padding: 50px 0 65px;
   }
   
+  .contact-section {
+    padding: 50px 0 65px;
+  }
+
   .contact-main-card {
-    padding: 32px 24px 28px;
+    padding: 30px 20px 24px;
+    border-radius: 20px;
   }
   
+  /* Fit footer background on mobile */
+  .footer-cta-section {
+    padding-top: 85px;
+    padding-bottom: 24px;
+    background-size: 100% auto;
+    background-position: center top;
+    background-repeat: no-repeat;
+  }
+
+  .footer-cta-container {
+    margin-bottom: 60px;
+  }
+
+  .footer-cta-heading {
+    font-size: clamp(1.85rem, 6.5vw, 2.45rem);
+    line-height: 1.2;
+    text-wrap: balance;
+  }
+
+  .footer-cta-subheading {
+    font-size: 0.98rem;
+    line-height: 1.55;
+    text-wrap: pretty;
+  }
+
   .footer-bar-top,
   .footer-bar-bottom {
     flex-direction: column;
@@ -1346,25 +1495,46 @@ button, input, textarea {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
+  /* Generous, comfortable mobile email input */
+  .waitlist-pill-form {
+    max-width: 100%;
+    padding: 0;
+  }
+
   .pill-input-wrapper {
     flex-direction: column;
-    border-radius: 20px;
-    padding: 12px 14px;
-    gap: 10px;
+    border-radius: 22px;
+    padding: 8px;
+    gap: 8px;
+    background: #FFFFFF;
+    border: 1.5px solid var(--color-btn-dark);
   }
   
   .pill-input {
     width: 100%;
-    padding: 4px 0;
+    font-size: 1.05rem;
+    padding: 13px 16px;
+    min-height: 50px;
     text-align: center;
+    border-radius: 14px;
+    background: transparent;
   }
   
   .pill-input-wrapper .form-submit-btn {
     width: 100%;
+    font-size: 1.02rem;
+    padding: 14px 20px;
+    min-height: 50px;
+    border-radius: 14px;
   }
   
   .step-card-tab {
-    padding: 18px 20px;
+    padding: 18px 18px;
+    border-radius: 16px;
+  }
+
+  .step-heading {
+    font-size: 1.15rem;
   }
 }
