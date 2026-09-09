@@ -611,6 +611,7 @@ function initFramerMotionAnimations() {
   // 2. "How It Works" Section Framer Motion inView Trigger
   const howSection = document.querySelector('.how-it-works-section');
   if (howSection) {
+    howSection.classList.add('is-visible');
     inView(howSection, () => {
       // Badge slide-up
       const badge = howSection.querySelector('.pill-badge');
@@ -642,7 +643,7 @@ function initFramerMotionAnimations() {
       stepTabs.forEach((tab, index) => {
         animate(tab, 
           { opacity: [0, 1], transform: ['translateX(-32px)', 'translateX(0px)'] }, 
-          { duration: 0.85, delay: 0.2 + index * 0.15, easing: framerSpring }
+          { duration: 0.85, delay: 0.15 + index * 0.12, easing: framerSpring }
         );
       });
 
@@ -651,15 +652,16 @@ function initFramerMotionAnimations() {
       if (stepFrame) {
         animate(stepFrame, 
           { opacity: [0, 1], transform: ['translateY(30px) scale(0.95)', 'translateY(0px) scale(1)'] }, 
-          { duration: 0.95, delay: 0.32, easing: framerSpring }
+          { duration: 0.95, delay: 0.25, easing: framerSpring }
         );
       }
-    }, { amount: 0.15 });
+    }, { amount: "some" });
   }
 
   // 3. "Still have questions?" Contact Card Deck Framer Motion inView
   const contactSection = document.querySelector('.contact-section');
   if (contactSection) {
+    contactSection.classList.add('is-visible');
     inView(contactSection, () => {
       const cardDeck = contactSection.querySelector('.card-stack-deck');
       if (cardDeck) {
@@ -668,12 +670,13 @@ function initFramerMotionAnimations() {
           { duration: 1.05, easing: framerSpring }
         );
       }
-    }, { amount: 0.18 });
+    }, { amount: "some" });
   }
 
   // 4. Footer CTA Section Framer Motion inView
   const footerCtaSection = document.querySelector('.footer-cta-section');
   if (footerCtaSection) {
+    footerCtaSection.classList.add('is-visible');
     inView(footerCtaSection, () => {
       const heading = footerCtaSection.querySelector('.footer-cta-heading');
       const subheading = footerCtaSection.querySelector('.footer-cta-subheading');
@@ -697,7 +700,7 @@ function initFramerMotionAnimations() {
           { duration: 0.9, delay: 0.28, easing: framerSpring }
         );
       }
-    }, { amount: 0.15 });
+    }, { amount: "some" });
   }
 }
 

@@ -404,7 +404,7 @@ button, input, textarea {
   position: relative;
   width: 100%;
   background-color: var(--color-surface);
-  background-image: url('assets/hero background.png');
+  background-image: url('assets/hero-background.jpg');
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
@@ -882,7 +882,7 @@ button, input, textarea {
 .footer-cta-section {
   position: relative;
   background-color: var(--color-surface);
-  background-image: url('assets/footer background.png');
+  background-image: url('assets/footer-background.jpg');
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
@@ -1232,9 +1232,9 @@ button, input, textarea {
    SCROLL REVEAL SYSTEM & CASCADE STAGGER ANIMATIONS
    ========================================================================== */
 .reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
