@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Talorify — Get Past the Filters &amp; Land the Interview.</title>
+  <meta name="description" content="Tailorify analyzes every job description and intelligently tailors your resume with the keywords that matter so you can stand out to ATS and recruiters." />
+  <meta name="theme-color" content="#FBFBF3" />
+  <link rel="icon" type="image/svg+xml" href="assets/icons/icon.svg" />
+  
+  <!-- Typography: DM Sans (Main) & Baloo Chettan 2 (Support) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet" />
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css" />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Canvas Confetti for celebratory waitlist signup -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="site-header" id="header">
+    <div class="header-container">
+      <a href="#hero" class="brand-logo" aria-label="Talorify Home">
+        <img src="assets/Brand logo.png" alt="Talorify" class="logo-img" />
+      </a>
+
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="#how-it-works" class="nav-link">How it works</a>
+        <a href="#contact" class="nav-link">Contact Us</a>
+      </nav>
+
+      <div class="header-action">
+        <a href="#hero" class="btn-pill-black scroll-to-waitlist">Join waitlist</a>
+      </div>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#how-it-works" class="mobile-nav-link">How it works</a>
+      <a href="#contact" class="mobile-nav-link">Contact Us</a>
+      <a href="#hero" class="btn-pill-black mobile-cta scroll-to-waitlist">Join waitlist</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="hero-container">
+        <h1 class="hero-title">
+          Get Past the Filters<br />
+          &amp; Land the Interview.
+        </h1>
+
+        <p class="hero-subtitle">
+          Tailorify analyzes every job description and intelligently tailors your resume with the keywords that matter so you can stand out to ATS and recruiters.
+        </p>
+
+        <!-- Waitlist Input Pill Form -->
+        <form class="waitlist-pill-form" id="heroWaitlistForm" novalidate>
+          <div class="pill-input-wrapper">
+            <input
+              type="email"
+              name="email"
+              id="heroEmailInput"
+              class="pill-input"
+              placeholder="email@company.com"
+              required
+              autocomplete="email"
+              aria-label="Email address for waitlist"
+            />
+            <button type="submit" class="btn-pill-black form-submit-btn" id="heroSubmitBtn">
+              <span class="btn-text">Join waitlist</span>
+            </button>
+          </div>
+          <div class="form-feedback" id="heroFeedback" role="alert" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS SECTION -->
+    <section class="how-it-works-section reveal-on-scroll" id="how-it-works">
+      <div class="section-container">
+        <!-- Badge Tag -->
+        <div class="badge-wrapper">
+          <span class="pill-badge">How it works</span>
+        </div>
+
+        <!-- Section Header -->
+        <div class="how-header-row">
+          <div class="how-title-col">
+            <h2 class="how-main-title">
+              From generic resume to<br />
+              interview ready
+            </h2>
+          </div>
+          <div class="how-desc-col">
+            <p class="how-side-text">
+              No manual keyword stuffing. No formatting headaches.<br />
+              Just precise job-matching tailor your brower.
+            </p>
+          </div>
+        </div>
+
+        <!-- Interactive 3-Step Component -->
+        <div class="how-steps-interactive">
+          <!-- Left Column: Steps List -->
+          <div class="steps-selector-list" id="stepsSelector">
+            <!-- Step 01 -->
+            <div class="step-card-tab active" data-step="1" tabindex="0" role="button" aria-pressed="true">
+              <span class="step-num-label">Step 01</span>
+              <h3 class="step-heading">Upload your master resume</h3>
+              <div class="step-desc-wrapper">
+                <p class="step-desc-text">
+                  Drop in your master resume and let Tailorify securely analyze your background, skills, and career history so you never have to re-enter your details.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 02 -->
+            <div class="step-card-tab" data-step="2" tabindex="0" role="button" aria-pressed="false">
+              <span class="step-num-label">Step 02</span>
+              <h3 class="step-heading">Auto-detect any role</h3>
+              <div class="step-desc-wrapper">
+                <p class="step-desc-text">
+                  Browse any job posting and let Tailorify automatically identify the key requirements, skills, and recruiter keywords in seconds.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 03 -->
+            <div class="step-card-tab" data-step="3" tabindex="0" role="button" aria-pressed="false">
+              <span class="step-num-label">Step 03</span>
+              <h3 class="step-heading">Precision weave &amp; export</h3>
+              <div class="step-desc-wrapper">
+                <p class="step-desc-text">
+                  Intelligently weave essential keywords into your existing experience and export an ATS-optimized, recruiter-ready resume.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Step Image Viewer -->
+          <div class="step-visual-display">
+            <div class="step-image-frame" id="stepImageFrame">
+              <img
+                src="assets/step 1.png"
+                alt="Step 1: Upload your master resume"
+                class="step-visual-img active"
+                id="stepImg1"
+              />
+              <img
+                src="assets/step 2.png"
+                alt="Step 2: Auto-detect any role"
+                class="step-visual-img"
+                id="stepImg2"
+              />
+              <img
+                src="assets/step 3.png"
+                alt="Step 3: Precision weave and export"
+                class="step-visual-img"
+                id="stepImg3"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT US SECTION ("Still have questions?") -->
+    <section class="contact-section reveal-on-scroll" id="contact">
+      <div class="contact-container">
+        <!-- Stacked Card Depth Effect -->
+        <div class="card-stack-deck">
+          <!-- Back Stack Layer 2 -->
+          <div class="card-layer card-layer-back" aria-hidden="true"></div>
+          <!-- Mid Stack Layer 1 -->
+          <div class="card-layer card-layer-mid" aria-hidden="true"></div>
+
+          <!-- Foreground Interactive Contact Card -->
+          <div class="contact-main-card">
+            <!-- Brand Logo centered at top -->
+            <div class="contact-card-brand">
+              <img src="assets/Brand logo.png" alt="Talorify" class="contact-logo-img" />
+            </div>
+
+            <h2 class="contact-card-title">Still have questions?</h2>
+            <p class="contact-card-subtitle">
+              Can't find the answer you're looking for? Reach out to our team we'd be happy to assist you with your waitlist.
+            </p>
+
+            <form class="contact-form" id="contactForm" action="https://formspree.io/f/xyeylwry" method="POST">
+              <div class="form-group">
+                <label for="contactEmail" class="form-label">Email</label>
+                <input
+                  type="email"
+                  id="contactEmail"
+                  name="email"
+                  class="form-input"
+                  placeholder="yourcompany@email.com"
+                  required
+                  autocomplete="email"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="contactName" class="form-label">Full name</label>
+                <input
+                  type="text"
+                  id="contactName"
+                  name="name"
+                  class="form-input"
+                  placeholder="your name"
+                  required
+                  autocomplete="name"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="contactQuestion" class="form-label">Questions</label>
+                <textarea
+                  id="contactQuestion"
+                  name="message"
+                  rows="4"
+                  class="form-input form-textarea"
+                  placeholder="How can we help?"
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn-pill-black contact-submit-btn" id="contactSubmitBtn">
+                <span class="btn-text">Contact us</span>
+              </button>
+
+              <div class="contact-faqs-link-wrapper">
+                <a href="#faqModal" class="contact-faqs-link" id="faqLink">Click here to faqs</a>
+              </div>
+
+              <div class="form-feedback" id="contactFeedback" role="alert" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER / BOTTOM CTA SECTION -->
+    <section class="footer-cta-section reveal-on-scroll" id="footerCta">
+      <div class="footer-cta-container">
+        <h2 class="footer-cta-heading">
+          Your next interview<br />
+          could start here.
+        </h2>
+
+        <p class="footer-cta-subheading">
+          Join the Tailorify waitlist and be among the first to tailor smarter, apply faster, and get paid what you're worth.
+        </p>
+
+        <!-- Bottom Waitlist Pill Form -->
+        <form class="waitlist-pill-form" id="bottomWaitlistForm" novalidate>
+          <div class="pill-input-wrapper">
+            <input
+              type="email"
+              name="email"
+              id="bottomEmailInput"
+              class="pill-input"
+              placeholder="email@company.com"
+              required
+              autocomplete="email"
+              aria-label="Email address for waitlist"
+            />
+            <button type="submit" class="btn-pill-black form-submit-btn" id="bottomSubmitBtn">
+              <span class="btn-text">Join waitlist</span>
+            </button>
+          </div>
+          <div class="form-feedback" id="bottomFeedback" role="alert" aria-live="polite"></div>
+        </form>
+      </div>
+
+      <!-- Footer Bottom Navigation & Copyright Bar -->
+      <footer class="site-footer">
+        <div class="footer-bar-container">
+          <div class="footer-bar-top">
+            <div class="footer-brand">
+              <img src="assets/Brand logo.png" alt="Talorify" class="footer-logo-img" />
+            </div>
+            <div class="footer-creator">
+              <span>A product by Kre8mind</span>
+            </div>
+          </div>
+
+          <hr class="footer-bar-divider" />
+
+          <div class="footer-bar-bottom">
+            <div class="footer-copyright">
+              <span>&copy; 2026 Tailorify. All rights reserved.</span>
+            </div>
+            <div class="footer-legal">
+              <a href="#privacy" class="legal-link" id="privacyLink">Privacy Policy</a>
+              <span class="legal-dot">&bull;</span>
+              <a href="#terms" class="legal-link" id="termsLink">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <!-- FAQ Modal Dialog -->
+  <dialog class="simple-modal" id="faqModal" aria-labelledby="faqModalTitle">
+    <div class="modal-card">
+      <div class="modal-top">
+        <h3 id="faqModalTitle">Frequently Asked Questions</h3>
+        <button type="button" class="modal-close" id="faqCloseBtn" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="faq-item">
+          <h4>What is Tailorify?</h4>
+          <p>Tailorify is an intelligent browser companion that analyzes job descriptions in real-time and tailors your resume with the exact ATS keywords recruiters look for.</p>
+        </div>
+        <div class="faq-item">
+          <h4>When is the official release?</h4>
+          <p>We are currently granting early access on a rolling basis. Joining the waitlist guarantees your spot in the private beta release.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Does it alter my true qualifications?</h4>
+          <p>No. Tailorify never invents false experience. It intelligently rephrases, emphasizes, and weaves existing skills to match applicant tracking systems seamlessly.</p>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Customized Celebration Modal Dialog -->
+  <dialog class="simple-modal celebration-modal" id="celebrationModal" aria-labelledby="celebrationModalTitle">
+    <div class="modal-card celebration-card">
+      <button type="button" class="modal-close celebration-close" id="celebrationCloseBtn" aria-label="Close dialog">&times;</button>
+      
+      <div class="celebration-brand">
+        <img src="assets/Brand logo.png" alt="Talorify" class="celebration-logo" />
+      </div>
+
+      <div class="celebration-check-circle" aria-hidden="true">
+        <svg class="celebration-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+
+      <h3 class="celebration-title" id="celebrationModalTitle">You're on the list!</h3>
+      
+      <div class="celebration-badge" id="celebrationPositionBadge">
+        Position #<span id="celebrationPositionNum">1,429</span>
+      </div>
+
+      <p class="celebration-message">
+        Your spot is officially secured for our private release. We'll send your access pass directly to <strong id="celebrationUserEmail">your email</strong>.
+      </p>
+
+      <div class="celebration-actions">
+        <button type="button" class="btn-pill-black celebration-btn" id="celebrationDismissBtn">
+          <span>Got it, thank you</span>
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer" aria-live="assertive" aria-atomic="true"></div>
+
+  <!-- Supabase JS Client CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- Lenis Smooth Inertial Scroll (Framer-style slow scroll) -->
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+
+  <!-- Framer Motion Engine for JavaScript (Motion) -->
+  <script src="https://unpkg.com/motion@13.2.0/dist/motion.js"></script>
+
+  <!-- Application Logic & Motion Controller -->
+  <script src="app.js"></script>
+</body>
+</html>

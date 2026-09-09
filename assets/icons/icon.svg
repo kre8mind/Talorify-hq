@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181b"/>
+      <stop offset="100%" stop-color="#09090b"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="100%" stop-color="#eab308"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#bgGrad)"/>
+  <!-- Stylized T with Sparkle / Tailoring Needle & Thread -->
+  <path d="M40 36 C40 30, 88 30, 88 36 C88 40, 72 40, 68 44 L68 92 C68 96, 60 96, 60 92 L60 44 C56 40, 40 40, 40 36 Z" fill="#ffffff"/>
+  <!-- Sparkle Star -->
+  <path d="M86 54 Q86 64 96 64 Q86 64 86 74 Q86 64 76 64 Q86 64 86 54 Z" fill="url(#accentGrad)"/>
+  <!-- Checkmark -->
+  <path d="M34 68 L44 78 L60 58" stroke="#4ade80" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>
