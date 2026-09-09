@@ -166,28 +166,7 @@ async function handleWaitlistSubmit(e, formType) {
   const originalText = btnText ? btnText.textContent : 'Join waitlist';
   if (btnText) btnText.textContent = 'Joining...';
 
-  // 1. Determine realistic queue position (starting from 102: 101 + existing_count + 1)
-  const waitlistLocal = JSON.parse(localStorage.getItem('tailorify_waitlist') || '[]');
-  const isAlreadyOnList = waitlistLocal.some((entry) => entry.email.toLowerCase() === email.toLowerCase());
-
-  let existingCount = waitlistLocal.length;
-  if (supabaseClient) {
-    try {
-      const { count, error: countErr } = await supabaseClient
-        .from('waitlist')
-        .select('*', { count: 'exact', head: true });
-      if (!countErr && typeof count === 'number') {
-        existingCount = count;
-      }
-    } catch (cErr) {
-      console.warn('Talorify: Could not query waitlist count:', cErr);
-    }
-  }
-
-  // Realistic queue: starts at 102, then 103, 104, etc.
-  let queuePosition = 101 + existingCount + 1;
-
-  // 2. Insert into Supabase 'waitlist' table
+  // 1. Insert into Supabase 'waitlist' table
   let supabaseSuccess = false;
   let isDuplicate = false;
 
@@ -199,10 +178,11 @@ async function handleWaitlistSubmit(e, formType) {
 
       if (error) {
         console.warn('Talorify: Supabase waitlist insert response:', error);
-        // Postgres unique violation code is 23505
         if (error.code === '23505' || (error.message && error.message.toLowerCase().includes('duplicate'))) {
           isDuplicate = true;
           supabaseSuccess = true;
+        } else if (error.code === '42501') {
+          console.warn('Talorify: Row-level security is active on waitlist table. Run SQL to enable public insert.');
         }
       } else {
         supabaseSuccess = true;
@@ -213,13 +193,59 @@ async function handleWaitlistSubmit(e, formType) {
     }
   }
 
-  // Save to localStorage as backup/cache
-  if (!isAlreadyOnList && !isDuplicate) {
+  // Backup submission via Formspree if Supabase is blocked by RLS
+  if (!supabaseSuccess && !isDuplicate) {
+    try {
+      fetch('https://formspree.io/f/xyeylwry', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, _subject: 'Tailorify Waitlist Lead' })
+      }).catch(() => {});
+    } catch (e) {}
+  }
+
+  // 2. Determine realistic queue position: 100 + totalCount (4 signups = 104, 5 signups = 105)
+  const waitlistLocal = JSON.parse(localStorage.getItem('tailorify_waitlist') || '[]');
+  const isAlreadyOnList = waitlistLocal.some((entry) => entry.email.toLowerCase() === email.toLowerCase());
+
+  // Base starts with the 4 registered users
+  let totalCount = Math.max(4, parseInt(localStorage.getItem('tailorify_global_count') || '4', 10));
+
+  if (supabaseClient) {
+    try {
+      const { count, error: countErr } = await supabaseClient
+        .from('waitlist')
+        .select('*', { count: 'exact', head: true });
+      if (!countErr && typeof count === 'number' && count > 0) {
+        totalCount = Math.max(totalCount, count);
+      }
+    } catch (cErr) {
+      console.warn('Talorify: Could not query waitlist count:', cErr);
+    }
+  }
+
+  let queuePosition = 100 + totalCount;
+
+  if (isAlreadyOnList) {
+    const existing = waitlistLocal.find((entry) => entry.email.toLowerCase() === email.toLowerCase());
+    queuePosition = existing && existing.position ? existing.position : (100 + totalCount);
+  } else {
+    // New signup: If we don't have a fresh Supabase live count, increment local counter
+    if (!supabaseSuccess) {
+      // If user had 4 and is submitting their 4th test, position is 104.
+      // If already recorded 4, next is 105.
+      if (localStorage.getItem('tailorify_global_count')) {
+        totalCount += 1;
+      }
+      queuePosition = 100 + totalCount;
+      localStorage.setItem('tailorify_global_count', String(totalCount));
+    } else {
+      queuePosition = 100 + totalCount;
+      localStorage.setItem('tailorify_global_count', String(totalCount));
+    }
+
     waitlistLocal.push({ email, date: new Date().toISOString(), position: queuePosition });
     localStorage.setItem('tailorify_waitlist', JSON.stringify(waitlistLocal));
-  } else {
-    const existing = waitlistLocal.find((entry) => entry.email.toLowerCase() === email.toLowerCase());
-    queuePosition = existing ? existing.position : queuePosition;
   }
 
   // Swap button text to "Added! ✓" as requested
