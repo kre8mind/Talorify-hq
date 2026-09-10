@@ -256,19 +256,19 @@ async function handleWaitlistSubmit(e, formType) {
   // Success styling on pill wrapper
   if (wrapper) wrapper.classList.add('input-success');
 
-  // Inline feedback message
-  if (isDuplicate) {
-    showFormMessage(feedback, `✓ You're already on the waitlist! Position #${queuePosition.toLocaleString()} secured.`, 'success');
+  // Inline feedback message & toast (clean, standard approach without numbers)
+  const isExistingEmail = isAlreadyOnList || isDuplicate;
+  if (isExistingEmail) {
+    showFormMessage(feedback, "✓ This email is already on the waitlist.", 'success');
+    showToast("✓ This email is already on the waitlist.");
   } else {
-    showFormMessage(feedback, `✓ Added! You are #${queuePosition.toLocaleString()} on the waitlist.`, 'success');
+    showFormMessage(feedback, "✓ Added! You are on the waitlist.", 'success');
+    showToast("✓ Added! You are on the waitlist.");
   }
 
   // Trigger customized celebration: Multi-burst confetti + celebration modal
   triggerCustomCelebration();
-  openCelebrationModal(email, queuePosition);
-
-  // Clean Toast without AI symbols
-  showToast(`Added! ✓ Position #${queuePosition.toLocaleString()} secured.`);
+  openCelebrationModal(email, isExistingEmail);
 
   // Reset button text back after 4 seconds
   setTimeout(() => {
@@ -352,14 +352,16 @@ function initCelebrationModal() {
   });
 }
 
-function openCelebrationModal(email, position) {
+function openCelebrationModal(email, isDuplicate) {
   const modal = document.getElementById('celebrationModal');
-  const posNum = document.getElementById('celebrationPositionNum');
+  const modalTitle = document.getElementById('celebrationModalTitle');
   const userEmail = document.getElementById('celebrationUserEmail');
 
   if (!modal) return;
 
-  if (posNum) posNum.textContent = position.toLocaleString();
+  if (modalTitle) {
+    modalTitle.textContent = isDuplicate ? "You're already on the list!" : "You're on the list!";
+  }
   if (userEmail) userEmail.textContent = email;
 
   if (typeof modal.showModal === 'function') {
