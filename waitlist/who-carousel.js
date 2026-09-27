@@ -200,8 +200,8 @@
       };
       plans[nextIdx] = stacked
         ? { geom: [{ t: 0, v: gNext() }, { t: 750, v: gActiveSplit(), ease: 'inout' }],
-            title: [{ t: 520, v: 0 }, { t: 820, v: 1, ease: 'out' }],
-            desc: [{ t: 580, v: 0 }, { t: 900, v: 1, ease: 'out' }] }
+            title: [{ t: 360, v: 0 }, { t: 750, v: 1, ease: 'out' }],
+            desc: [{ t: 420, v: 0 }, { t: 800, v: 1, ease: 'out' }] }
         : { geom: [{ t: 120, v: gNext() }, { t: 750, v: gActiveFull(), ease: 'inout' }, { t: 1200, v: gActiveSplit(), ease: 'inout' }],
             title: [{ t: 820, v: 0 }, { t: 1120, v: 1, ease: 'out' }],
             desc: [{ t: 880, v: 0 }, { t: 1200, v: 1, ease: 'out' }] };
@@ -222,8 +222,8 @@
     } else {
       plans[prevIdx] = stacked
         ? { geom: [{ t: 0, v: gPrev() }, { t: 750, v: gActiveSplit(), ease: 'inout' }],
-            title: [{ t: 520, v: 0 }, { t: 820, v: 1, ease: 'out' }],
-            desc: [{ t: 580, v: 0 }, { t: 900, v: 1, ease: 'out' }] }
+            title: [{ t: 360, v: 0 }, { t: 750, v: 1, ease: 'out' }],
+            desc: [{ t: 420, v: 0 }, { t: 800, v: 1, ease: 'out' }] }
         : { geom: [{ t: 120, v: gPrev() }, { t: 750, v: gActiveFull(), ease: 'inout' }, { t: 1200, v: gActiveSplit(), ease: 'inout' }],
             title: [{ t: 820, v: 0 }, { t: 1120, v: 1, ease: 'out' }],
             desc: [{ t: 880, v: 0 }, { t: 1200, v: 1, ease: 'out' }] };
@@ -316,9 +316,11 @@
     var newActive = (activeIndex + direction + cards.length) % cards.length;
     var start = null;
 
+    var stepMs = GEOM.stacked ? 850 : STEP_MS;
+
     function frame(now) {
       if (start === null) start = now;
-      var t = Math.min(now - start, STEP_MS);
+      var t = Math.min(now - start, stepMs);
       cards.forEach(function (card, idx) {
         var plan = plans[idx];
         if (!plan) return;
@@ -331,7 +333,7 @@
         var descOp = sampleTrack(plan.desc, t);
         if (descOp !== undefined) card.querySelector('.who2-card-desc').style.opacity = descOp;
       });
-      if (t < STEP_MS) requestAnimationFrame(frame);
+      if (t < stepMs) requestAnimationFrame(frame);
       else { activeIndex = newActive; applyResting(); finishStep(); }
     }
     requestAnimationFrame(frame);

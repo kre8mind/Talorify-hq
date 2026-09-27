@@ -426,21 +426,20 @@
         var p3 = ease(clamp((pMob - 0.52) / 0.43, 0, 1));
 
         // 1st card pulls up
-        var y1 = (1 - p1) * 110;
+        var y1 = (1 - p1) * 75;
         darkCard.style.transform = 'translate3d(0, ' + y1.toFixed(2) + 'px, 0)';
         darkCard.style.opacity = '1';
         darkCard.style.pointerEvents = 'auto';
 
         // 2nd card follows and pulls up
-        var y2 = (1 - p2) * 130;
-        var scale2 = 0.96 + p2 * 0.04;
+        var y2 = (1 - p2) * 80;
+        var scale2 = 0.97 + p2 * 0.03;
         glassCard.style.transform = 'translate3d(0, ' + y2.toFixed(2) + 'px, 0) scale(' + scale2.toFixed(3) + ')';
         glassCard.style.opacity = '1';
         glassCard.style.pointerEvents = 'auto';
 
-        // 3rd card ("the last one behind the field"): submerged behind grass (+110px),
-        // comes OUT from behind the field as user scrolls down (-25px), goes back inside as they scroll up
-        var y3 = (1 - p3) * 110 - (p3 * 25);
+        // 3rd card pulls up into view above the ground field
+        var y3 = (1 - p3) * 85;
         whiteCard.style.transform = 'translate3d(0, ' + y3.toFixed(2) + 'px, 0)';
         whiteCard.style.opacity = '1';
         whiteCard.style.pointerEvents = 'auto';
