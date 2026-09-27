@@ -1486,7 +1486,7 @@ html.lenis.lenis-stopped { overflow-x: visible !important; overflow-y: visible !
   .promise-card--white {
     order: 3;
     z-index: 2;
-    padding: 24px 20px 68px !important;
+    padding: 24px 20px 78px !important;
   }
   .promise-card {
     box-sizing: border-box;
@@ -1521,9 +1521,11 @@ html.lenis.lenis-stopped { overflow-x: visible !important; overflow-y: visible !
     min-width: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
-    max-height: 86px !important;
-    object-fit: cover !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
     object-position: bottom center !important;
+    display: block;
   }
 }
 
