@@ -30,14 +30,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. Initialize Supabase
   initSupabase();
 
-  // 2. Interactive 3-Step Feature Switcher
-  initStepSwitcher();
-
   // 3. Supabase Waitlist Registration Forms (Hero & Footer)
   initWaitlistForms();
 
   // 4. Customized Celebration Modal
   initCelebrationModal();
+
+  // 4b. Pricing: monthly / yearly toggle
+  initBillingToggle();
 
   // 5. Formspree Contact Form (AJAX submission)
   initContactForm();
@@ -54,52 +54,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 9. Framer Motion Slide-ups & Dynamic Animations
   initFramerMotionAnimations();
+
+  // 10. Lightweight Visitor Analytics (Supabase)
+  initVisitorTracking();
 });
-
-/* ==========================================================================
-   1. INTERACTIVE 3-STEP FEATURE SWITCHER
-   ========================================================================== */
-function initStepSwitcher() {
-  const stepTabs = document.querySelectorAll('.step-card-tab');
-  const stepImages = [
-    document.getElementById('stepImg1'),
-    document.getElementById('stepImg2'),
-    document.getElementById('stepImg3')
-  ];
-
-  if (!stepTabs.length) return;
-
-  stepTabs.forEach((tab) => {
-    const handleStepSelect = () => {
-      const stepNumber = parseInt(tab.getAttribute('data-step'), 10);
-      if (isNaN(stepNumber)) return;
-
-      // Update active state on tabs
-      stepTabs.forEach((t) => {
-        const isActive = t === tab;
-        t.classList.toggle('active', isActive);
-        t.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-      });
-
-      // Update active image with smooth crossfade
-      stepImages.forEach((img, idx) => {
-        if (!img) return;
-        const isTarget = idx === stepNumber - 1;
-        img.classList.toggle('active', isTarget);
-      });
-    };
-
-    tab.addEventListener('click', handleStepSelect);
-
-    // Keyboard accessibility: Enter or Space triggers step selection
-    tab.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        handleStepSelect();
-      }
-    });
-  });
-}
 
 /* ==========================================================================
    2. SUPABASE WAITLIST REGISTRATION & CELEBRATION
@@ -199,7 +157,7 @@ async function handleWaitlistSubmit(e, formType) {
       fetch('https://formspree.io/f/xyeylwry', {
         method: 'POST',
         headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email, _subject: 'Tailorify Waitlist Lead' })
+        body: JSON.stringify({ email: email, _subject: 'Talorify Waitlist Lead' })
       }).catch(() => {});
     } catch (e) {}
   }
@@ -286,7 +244,7 @@ function showFormMessage(container, message, type) {
 function triggerCustomCelebration() {
   if (typeof confetti !== 'function') return;
 
-  // Tailorify Brand Celebration Palette: Charcoal, Warm Gold, Emerald, Beige
+  // Talorify Brand Celebration Palette: Charcoal, Warm Gold, Emerald, Beige
   const brandColors = ['#121214', '#10B981', '#F59E0B', '#F5F5DC', '#3B82F6'];
 
   // Left burst
@@ -569,27 +527,86 @@ function initSmartNavbar() {
       return;
     }
 
-    if (scrollY <= 30) {
+    if (scrollY <= 40) {
       header.classList.remove('is-scrolled');
-      header.classList.remove('nav-hidden');
-      header.classList.add('nav-visible');
     } else {
       header.classList.add('is-scrolled');
+    }
+    header.classList.remove('nav-hidden');
+    header.classList.add('nav-visible');
 
-      if (scrollY > lastScrollY + 6 && scrollY > 70) {
-        // Scrolling DOWN -> hide navbar
-        header.classList.add('nav-hidden');
-        header.classList.remove('nav-visible');
-      } else if (scrollY < lastScrollY - 6) {
-        // Scrolling UP -> reveal navbar
-        header.classList.remove('nav-hidden');
-        header.classList.add('nav-visible');
+    // Scroll spy for navbar links
+    const sections = [
+      { id: 'how-it-works', link: document.querySelector('.nav-link[href="#how-it-works"]') },
+      { id: 'who', link: document.querySelector('.nav-link[href="#who"]') },
+      { id: 'features', link: document.querySelector('.nav-link[href="#features"]') },
+      { id: 'pricing', link: document.querySelector('.nav-link[href="#pricing"]') }
+    ];
+
+    let currentActive = null;
+    const viewThreshold = scrollY + 160;
+
+    // Once passed the pricing section, do NOT have indicator on the pricing nav link until returning to it
+    const pricingSec = document.getElementById('pricing');
+    const hasPassedPricing = pricingSec ? (pricingSec.getBoundingClientRect().bottom <= 140) : false;
+
+    if (!hasPassedPricing) {
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const sec = document.getElementById(sections[i].id);
+        if (sec && sec.offsetTop <= viewThreshold) {
+          currentActive = sections[i].link;
+          break;
+        }
+      }
+    }
+
+    const navLine = document.getElementById('navSlidingLine');
+    const navContainer = document.getElementById('mainNavLinks');
+
+    const activeItem = currentActive;
+
+    sections.forEach(s => {
+      if (s.link) {
+        if (s.link === activeItem) s.link.classList.add('is-active');
+        else s.link.classList.remove('is-active');
+      }
+    });
+
+    if (navLine && navContainer) {
+      if (activeItem) {
+        const containerRect = navContainer.getBoundingClientRect();
+        const linkRect = activeItem.getBoundingClientRect();
+        const left = linkRect.left - containerRect.left;
+        navLine.style.transform = `translateX(${left}px)`;
+        navLine.style.width = `${linkRect.width}px`;
+        navLine.style.opacity = '1';
+      } else {
+        navLine.style.opacity = '0';
       }
     }
 
     lastScrollY = scrollY;
     ticking = false;
   };
+
+  // Initial positioning and resize alignment for sliding line
+  window.addEventListener('resize', () => {
+    const active = document.querySelector('.site-header .nav-link.is-active');
+    const navLine = document.getElementById('navSlidingLine');
+    const navContainer = document.getElementById('mainNavLinks');
+    if (navLine && navContainer && active) {
+      const containerRect = navContainer.getBoundingClientRect();
+      const linkRect = active.getBoundingClientRect();
+      navLine.style.transform = `translateX(${linkRect.left - containerRect.left}px)`;
+      navLine.style.width = `${linkRect.width}px`;
+      navLine.style.opacity = '1';
+    } else if (navLine) {
+      navLine.style.opacity = '0';
+    }
+  });
+
+  // Call once initially
+  requestAnimationFrame(() => updateNav(window.pageYOffset || document.documentElement.scrollTop || 0));
 
   window.addEventListener('scroll', () => {
     if (!ticking) {
@@ -598,6 +615,16 @@ function initSmartNavbar() {
       ticking = true;
     }
   }, { passive: true });
+
+  if (typeof lenisInstance !== 'undefined' && lenisInstance && lenisInstance.on) {
+    lenisInstance.on('scroll', () => {
+      if (!ticking) {
+        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        window.requestAnimationFrame(() => updateNav(scrollY));
+        ticking = true;
+      }
+    });
+  }
 }
 
 /* ==========================================================================
@@ -703,55 +730,6 @@ function initFramerMotionAnimations() {
     );
   }
 
-  // 2. "How It Works" Section Framer Motion inView Trigger
-  const howSection = document.querySelector('.how-it-works-section');
-  if (howSection) {
-    howSection.classList.add('is-visible');
-    inView(howSection, () => {
-      // Badge slide-up
-      const badge = howSection.querySelector('.pill-badge');
-      if (badge) {
-        animate(badge, 
-          { opacity: [0, 1], transform: ['translateY(20px)', 'translateY(0px)'] }, 
-          { duration: 0.75, easing: framerSpring }
-        );
-      }
-
-      // Title & Side Description slide-up
-      const mainTitle = howSection.querySelector('.how-main-title');
-      const sideText = howSection.querySelector('.how-side-text');
-      if (mainTitle) {
-        animate(mainTitle, 
-          { opacity: [0, 1], transform: ['translateY(36px)', 'translateY(0px)'] }, 
-          { duration: 0.9, delay: 0.1, easing: framerSpring }
-        );
-      }
-      if (sideText) {
-        animate(sideText, 
-          { opacity: [0, 1], transform: ['translateY(28px)', 'translateY(0px)'] }, 
-          { duration: 0.9, delay: 0.2, easing: framerSpring }
-        );
-      }
-
-      // Staggered Step Cards slide-up
-      const stepTabs = howSection.querySelectorAll('.step-card-tab');
-      stepTabs.forEach((tab, index) => {
-        animate(tab, 
-          { opacity: [0, 1], transform: ['translateX(-32px)', 'translateX(0px)'] }, 
-          { duration: 0.85, delay: 0.15 + index * 0.12, easing: framerSpring }
-        );
-      });
-
-      // Step Visual Frame slide-up with subtle scale
-      const stepFrame = howSection.querySelector('.step-image-frame');
-      if (stepFrame) {
-        animate(stepFrame, 
-          { opacity: [0, 1], transform: ['translateY(30px) scale(0.95)', 'translateY(0px) scale(1)'] }, 
-          { duration: 0.95, delay: 0.25, easing: framerSpring }
-        );
-      }
-    }, { amount: "some" });
-  }
 
   // 3. "Still have questions?" Contact Card Deck Framer Motion inView
   const contactSection = document.querySelector('.contact-section');
@@ -823,6 +801,182 @@ function initScrollReveal() {
   } else {
     // Graceful fallback for non-supporting browsers
     revealElements.forEach((el) => el.classList.add('is-visible'));
+  }
+}
+
+
+
+
+/* ==========================================================================
+   11. PRICING: WEEK / MONTH / 3 MONTHS TOGGLE WITH SMOOTH GLIDING & TRANSITION
+   ========================================================================== */
+function initBillingToggle() {
+  const toggle = document.getElementById('billingToggle');
+  const amount = document.getElementById('proAmount');
+  const period = document.getElementById('proPeriod');
+  const billed = document.getElementById('proBilled');
+  const slider = document.getElementById('billingSlider');
+  if (!toggle || !amount || !period || !billed) return;
+
+  const plans = {
+    week: { amount: '$4', period: 'for 1 week', billed: 'That is about 57 cents a day. Perfect for a quick sprint.', flag: '' },
+    month: { amount: '$9', period: 'for 1 month', billed: 'That is about 30 cents a day. Save $8 against paying weekly.', flag: 'Most popular' },
+    quarter: { amount: '$24', period: 'for 3 months', billed: 'That is about 26 cents a day. Save $12 against paying monthly.', flag: 'Best value' }
+  };
+  const flag = document.getElementById('proFlag');
+
+  function updateSlider(btn, animate) {
+    if (!slider || !btn) return;
+    if (!animate) {
+      slider.style.transition = 'none';
+    } else {
+      slider.style.transition = 'transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), width 0.32s cubic-bezier(0.16, 1, 0.3, 1)';
+    }
+    slider.style.transform = `translateX(${btn.offsetLeft}px)`;
+    slider.style.width = `${btn.offsetWidth}px`;
+    if (!animate) {
+      requestAnimationFrame(() => {
+        slider.style.transition = '';
+      });
+    }
+  }
+
+  // Set up sliding pill indicator
+  toggle.classList.add('has-slider');
+  const initialActive = toggle.querySelector('.billing-option.is-active') || toggle.querySelector('.billing-option');
+  if (initialActive) {
+    updateSlider(initialActive, false);
+    window.addEventListener('load', () => updateSlider(initialActive, false), { once: true });
+  }
+
+  window.addEventListener('resize', () => {
+    const curActive = toggle.querySelector('.billing-option.is-active');
+    if (curActive) updateSlider(curActive, false);
+  });
+
+  const priceWrapper = amount.parentElement;
+
+  toggle.querySelectorAll('.billing-option').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      if (btn.classList.contains('is-active')) return;
+      const plan = plans[btn.dataset.billing];
+      if (!plan) return;
+
+      toggle.querySelectorAll('.billing-option').forEach((b) => {
+        const on = b === btn;
+        b.classList.toggle('is-active', on);
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+      toggle.dataset.active = btn.dataset.billing;
+      updateSlider(btn, true);
+
+      // Smooth cross-fade and lift transition for price values
+      if (priceWrapper && billed) {
+        priceWrapper.style.transition = 'opacity 0.16s ease, transform 0.16s ease';
+        billed.style.transition = 'opacity 0.16s ease, transform 0.16s ease';
+        if (flag) flag.style.transition = 'opacity 0.16s ease, transform 0.16s ease';
+
+        priceWrapper.style.opacity = '0';
+        priceWrapper.style.transform = 'translateY(-3px)';
+        billed.style.opacity = '0';
+        billed.style.transform = 'translateY(-3px)';
+        if (flag) {
+          flag.style.opacity = '0';
+          flag.style.transform = 'translateY(-3px)';
+        }
+
+        setTimeout(() => {
+          amount.textContent = plan.amount;
+          period.textContent = plan.period;
+          billed.textContent = plan.billed;
+          if (flag) {
+            if (plan.flag) {
+              flag.textContent = plan.flag;
+              flag.style.display = '';
+            } else {
+              flag.style.display = 'none';
+            }
+          }
+
+          priceWrapper.style.transition = 'opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1)';
+          billed.style.transition = 'opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1)';
+          if (flag) flag.style.transition = 'opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1)';
+
+          priceWrapper.style.opacity = '1';
+          priceWrapper.style.transform = 'translateY(0)';
+          billed.style.opacity = '1';
+          billed.style.transform = 'translateY(0)';
+          if (flag && plan.flag) {
+            flag.style.opacity = '1';
+            flag.style.transform = 'translateY(0)';
+          }
+        }, 150);
+      } else {
+        amount.textContent = plan.amount;
+        period.textContent = plan.period;
+        billed.textContent = plan.billed;
+        if (flag) {
+          if (plan.flag) {
+            flag.textContent = plan.flag;
+            flag.style.display = '';
+          } else {
+            flag.style.display = 'none';
+          }
+        }
+      }
+    });
+  });
+}
+
+/* ==========================================================================
+   12. ANONYMOUS VISITOR ANALYTICS (SUPABASE)
+   ========================================================================== */
+function initVisitorTracking() {
+  if (navigator.doNotTrack === '1') return;
+
+  const sessionKey = 'talorify_session_tracked';
+  if (sessionStorage.getItem(sessionKey)) return;
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const utmSource = urlParams.get('utm_source') || null;
+  const utmMedium = urlParams.get('utm_medium') || null;
+  const utmCampaign = urlParams.get('utm_campaign') || null;
+  let referrer = 'direct';
+  try {
+    if (document.referrer) {
+      referrer = new URL(document.referrer, window.location.origin).hostname;
+    }
+  } catch (e) {
+    referrer = document.referrer ? document.referrer.slice(0, 50) : 'direct';
+  }
+  const deviceType = window.innerWidth <= 768 ? 'mobile' : (window.innerWidth <= 1024 ? 'tablet' : 'desktop');
+
+  const payload = {
+    page_path: window.location.pathname || '/',
+    referrer: referrer,
+    device_type: deviceType,
+    screen_width: window.innerWidth,
+    utm_source: utmSource,
+    utm_medium: utmMedium,
+    utm_campaign: utmCampaign
+  };
+
+  const sendHit = () => {
+    if (supabaseClient && typeof supabaseClient.from === 'function') {
+      supabaseClient
+        .from('page_visits')
+        .insert([payload])
+        .then(() => {
+          sessionStorage.setItem(sessionKey, '1');
+        })
+        .catch(() => {});
+    }
+  };
+
+  if (document.readyState === 'complete') {
+    setTimeout(sendHit, 1200);
+  } else {
+    window.addEventListener('load', () => setTimeout(sendHit, 1200), { once: true });
   }
 }
 

@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Help Center &amp; Support — Talorify</title>
+  <meta name="description" content="Guides, tutorials, troubleshooting, and answers for using the Talorify Chrome extension to tailor your resume and autofill job applications." />
+  <meta name="theme-color" content="#FBFBF3" />
+  <link rel="icon" type="image/png" href="assets/Favicon.png" />
+  <link rel="canonical" href="https://talorify.kre8mind.com/help" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="landing.css" />
+  <link rel="stylesheet" href="legal.css" />
+  <link rel="stylesheet" href="help.css" />
+</head>
+<body class="legal-body">
+  <!-- Top Navigation Header (Fluid Glass Pill) -->
+  <header class="site-header" id="header">
+    <div class="header-container">
+      <a href="/" class="brand-logo" aria-label="Talorify Home">
+        <img src="assets/brand full logo.svg" alt="Talorify" class="logo-img" />
+      </a>
+
+      <nav class="nav-links" id="mainNavLinks" aria-label="Main Navigation">
+        <a href="/#how-it-works" class="nav-link">Process</a>
+        <a href="/#who" class="nav-link">Audience</a>
+        <a href="/#features" class="nav-link">Features</a>
+        <a href="/#pricing" class="nav-link">Pricing</a>
+      </nav>
+
+      <div class="header-action">
+        <a href="https://chromewebstore.google.com/" target="_blank" rel="noopener" class="btn-pill-black btn-with-arrow" data-cta>
+          <span class="btn-text">Add to Chrome</span>
+          <span class="btn-arrow-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN HELP CENTER CONTENT -->
+  <main class="help-main">
+    <div class="help-wrap">
+      <!-- LEGAL & DOCUMENTATION TABS -->
+      <nav class="legal-tabs" aria-label="Documentation and Legal pages">
+        <a href="/help" class="legal-tab is-current">Help Center</a>
+        <a href="/privacy" class="legal-tab">Privacy Policy</a>
+        <a href="/terms" class="legal-tab">Terms of Service</a>
+        <a href="/refund" class="legal-tab">Refund Policy</a>
+      </nav>
+
+      <!-- HERO INTRO -->
+      <div class="help-hero">
+        <h1 class="help-title">Help Center</h1>
+        <p class="help-lede">Clear guides, feature walk-throughs, and answers to help you tailor your resume to any job with confidence. If you can't find what you need, our team is always ready to assist.</p>
+        <p class="legal-updated">Updated for Chrome Extension v1.0.0 &bull; September 2026</p>
+      </div>
+
+      <!-- TOP QUICK SUPPORT BANNER -->
+      <div class="help-support-banner">
+        <div class="help-support-banner-content">
+          <div class="help-support-icon-pill" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+          <div>
+            <div class="help-support-banner-title">Need direct assistance from our team?</div>
+            <div class="help-support-banner-desc">Having trouble with a specific job site or an account question? We typically reply within 24 hours.</div>
+          </div>
+        </div>
+        <div class="help-support-banner-actions">
+          <button type="button" class="btn-help-support btn-open-support-modal">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg>
+            Contact Support
+          </button>
+          <a href="mailto:supporttalorify@kre8mind.com" class="btn-help-email">Email Us</a>
+        </div>
+      </div>
+
+      <!-- LIVE SEARCH BAR -->
+      <div class="help-search-box">
+        <div class="help-search-input-wrapper">
+          <span class="help-search-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </span>
+          <input
+            type="text"
+            id="helpSearchInput"
+            class="help-search-input"
+            placeholder="Search guides, tailoring, autofill, limits, errors..."
+            autocomplete="off"
+            aria-label="Search Help Center articles"
+          />
+          <button type="button" id="helpSearchClear" class="help-search-clear" aria-label="Clear search input">&times;</button>
+        </div>
+      </div>
+
+      <!-- CATEGORY FILTER CHIPS -->
+      <div class="help-category-pills" role="tablist" aria-label="Filter help articles by category">
+        <button type="button" class="help-category-pill is-active" data-filter="all">All Topics</button>
+        <button type="button" class="help-category-pill" data-filter="getting-started">Getting Started</button>
+        <button type="button" class="help-category-pill" data-filter="tailoring">Tailoring &amp; Match Score</button>
+        <button type="button" class="help-category-pill" data-filter="autofill">Autofill &amp; Applications</button>
+        <button type="button" class="help-category-pill" data-filter="billing">Plans &amp; Limits</button>
+        <button type="button" class="help-category-pill" data-filter="privacy">Privacy &amp; Security</button>
+        <button type="button" class="help-category-pill" data-filter="troubleshooting">Troubleshooting</button>
+      </div>
+
+      <!-- NO RESULTS PLACEHOLDER -->
+      <div id="helpNoResults" class="help-no-results">
+        <div class="help-no-results-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            <line x1="8" y1="11" x2="14" y2="11"></line>
+          </svg>
+        </div>
+        <h3 class="help-no-results-title">No matching guides found</h3>
+        <p class="help-no-results-desc">We couldn't find any articles matching your search. You can ask our team directly or try different keywords.</p>
+        <button type="button" class="btn-help-support btn-open-support-modal">Message Support Team</button>
+      </div>
+
+      <!-- SECTION 1: GETTING STARTED -->
+      <section class="help-section" data-category="getting-started" id="sec-getting-started">
+        <div class="help-section-header">
+          <h2 class="help-section-title">Getting Started &amp; Setup</h2>
+          <span class="help-section-count">4</span>
+        </div>
+        <div class="help-accordion-list">
+          <!-- Item 1.1 -->
+          <article class="help-accordion-item" data-keywords="install download chrome web store pin extension setup">
+            <button type="button" class="help-accordion-trigger" aria-expanded="false">
+              <span>How do I install and pin the Talorify Chrome extension?</span>
+              <span class="help-accordion-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div class="help-accordion-content">
+              <div class="help-accordion-body">
+                <p>Getting started with Talorify takes less than a minute:</p>
+                <ol>
+                  <li>Visit the <strong>Chrome Web Store</strong> and click <strong>Add to Chrome</strong>.</li>
+                  <li>When prompted, confirm by clicking <strong>Add extension</strong>.</li>
+                  <li>In Chrome's top-right toolbar, click the puzzle piece icon (Extensions).</li>
+                  <li>Find <strong>Talorify</strong> in the list and click the <strong>Pin icon</strong> so it is always accessible beside your address bar.</li>
+                </ol>
+                <p>Once pinned, you can click the Talorify icon on any tab to open the side panel.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 1.2 -->
+          <article class="help-accordion-item" data-keywords="resume upload pdf formats base resume docx word">
+            <button type="button" class="help-accordion-trigger" aria-expanded="false">
+              <span>What resume formats does Talorify support, and how do I upload one?</span>
+              <span class="help-accordion-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div class="help-accordion-content">
+              <div class="help-accordion-body">
+                <p>Talorify accepts base resumes in <strong>PDF format</strong>. For the highest extraction quality and accuracy, we recommend:</p>
+                <ul>
+                  <li>Exporting directly from Microsoft Word, Google Docs, Apple Pages, or LaTeX as a text-based PDF.</li>
+                  <li>Avoiding scanned images or photographed paper resumes, as optical character recognition (OCR) can miss important formatting or keywords.</li>
+                </ul>
+                <p>To upload: Open the Talorify side panel, click <strong>Upload Base Resume</strong>, and select your PDF. Free accounts can store up to <strong>3 base resumes</strong>; Pro accounts can store up to <strong>15 base resumes</strong>.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 1.3 -->
+          <article class="help-accordion-item" data-keywords="side panel open view split screen linkedin indeed greenhouse">
+            <button type="button" class="help-accordion-trigger" aria-expanded="false">
+              <span>How do I open Talorify on a job posting?</span>
+              <span class="help-accordion-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div class="help-accordion-content">
+              <div class="help-accordion-body">
+                <p>Talorify uses Chrome's native <strong>Side Panel</strong> API so it never obstructs your browsing experience:</p>
+                <ol>
+                  <li>Navigate to any job posting on LinkedIn, Indeed, Greenhouse, Lever, Workday, or a direct company careers page.</li>
+                  <li>Click the <strong>Talorify icon</strong> in your browser toolbar.</li>
+                  <li>The side panel opens immediately on the right side of your window, leaving the job description clearly visible on the left.</li>
+                </ol>
+                <p>Talorify automatically reads the job title, company name, requirements, and responsibilities directly from the active tab.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 1.4 -->
+          <article class="help-accordion-item" data-keywords="account sign in google password authentication">
+            <button type="button" class="help-accordion-trigger" aria-expanded="false">
+              <span>Do I need to create an account to use Talorify?</span>
+              <span class="help-accordion-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div class="help-accordion-content">
+              <div class="help-accordion-body">
+                <p>Yes, an account is required so Talorify can securely store your base resumes, manage your daily allowance, and sync your application history across devices.</p>
+                <p>You can sign in with one click using <strong>Continue with Google</strong> or create an account using your email address and a secure password. We verify email addresses to keep the service fair and prevent abuse.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- SECTION 2: TAILORING & MATCH SCORE -->
+      <section class="help-section" data-category="tailoring" id="sec-tailoring">
+        <div class="help-section-header">
+          <h2 class="help-section-title">Tailoring &amp; Match Score</h2>
+          <span class="help-section-count">4</span>
+        </div>
+        <div class="help-accordion-list">
+          <!-- Item 2.1 -->
+          <article class="help-accordion-item" data-keywords="how tailoring works rewrite summary bullet points skills ai">
+            <button type="button" class="help-accordion-trigger" aria-expanded="false">
+              <span>How does Talorify tailor my resume for a specific job?</span>
+              <span class="help-accordion-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div class="help-accordion-content">
+              <div class="help-accordion-body">
+                <p>Talorify's tailoring engine analyzes both your base resume and the employer's specific job posting:</p>
+                <ul>
+                  <li><strong>Professional Summary:</strong> Rephrased to lead with the exact technical profile and experience the employer is seeking.</li>
+                  <li><strong>Work Experience Bullets:</strong> Reordered and rewritten to emphasize relevant achievements, incorporating exact industry terminology and hard skills required by the posting.</li>
+                  <li><strong>Skills Section:</strong> Aligned with the job's prioritized technical stack and tools, bringing matching competencies to the forefront.</li>
+                </ul>
+                <p>The entire process takes approximately 10 to 15 seconds, and you can review all changes before saving or downloading.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 2.2 -->
+          <article class="help-accordion-item" data-keywords="truth lie invent fake hallucinate promise facts genuine">
+            <button type="button" class="help-accordion-trigger" aria-expanded="false">
+              <span>Does Talorify ever invent experience or make things up?</span>
+              <span class="help-accordion-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div class="help-accordion-content">
+              <div class="help-accordion-body">
+                <p><strong>Strictly NO.</strong> This is our core promise: <em>Your story stays yours.</em></p>
+                <p>Talorify is built with strict anti-hallucination guardrails:</p>
+                <ul>
+                  <li>It never invents past job titles, companies, certifications, or employment dates.</li>
+                  <li>It never claims proficiency in languages, frameworks, or tools you haven't mentioned in your base resume.</li>
+                  <li>A modest role (such as <em>"assisted"</em> or <em>"contributed to"</em>) is never artificially inflated into <em>"led"</em> or <em>"directed"</em>.</li>
+                </ul>
+                <p>Talorify only reshapes what is already true about you so Applicant Tracking Systems (ATS) and human recruiters immediately recognize your relevant background.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 2.3 -->
+          <article class="help-accordion-item" data-keywords="match score percentage calculation keywords ats gaps">
+            <button type="button" class="help-accordion-trigger" aria-expanded="false">
+              <span>What is the Match Score and how is it calculated?</span>
+              <span class="help-accordion-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div class="help-accordion-content">
+              <div class="help-accordion-body">
+                <p>The <strong>Match Score (0&ndash;100%)</strong> provides a clear, quantitative snapshot of how well your resume matches the job requirements before and after tailoring:</p>
+                <ul>
+                  <li><strong>Hard Skills &amp; Tools (40%):</strong> Matches for specific technologies, platforms, software, and certifications.</li>
+                  <li><strong>Core Responsibilities (35%):</strong> Alignment between what you have accomplished and what the job entails day-to-day.</li>
+                  <li><strong>Industry Terminology &amp; Keywords (25%):</strong> Presence of recognized industry keywords and standard domain phrasing.</li>
+                </ul>
+                <p>Talorify also highlights <em>Missing Keywords</em> so you can see which qualifications you may want to mention if you have them.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 2.4 -->
+          <article class="help-accordion-item" data-keywords="download export pdf word docx format print ats formatting">
+            <button type="button" class="help-accordion-trigger" aria-expanded="false">
+              <span>How do I download or export my tailored resume?</span>
+              <span class="help-accordion-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div class="help-accordion-content">
+              <div class="help-accordion-body">
+                <p>After reviewing your tailored resume in the side panel, click the <strong>Download</strong> button:</p>
+                <ul>
+                  <li><strong>PDF:</strong> Exports a beautifully formatted, clean single or two-page PDF built specifically for seamless ATS parsing. Available on both Free and Pro plans.</li>
+                  <li><strong>Word (.docx):</strong> Exports an editable document if you wish to make custom typography or visual tweaks before submitting. Available on Pro plans.</li>
+                </ul>
+                <p>Downloads are processed locally and saved directly to your browser's default downloads folder.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- SECTION 3: AUTOFILL & APPLICATIONS -->
+      <section class="help-section" data-category="autofill" id="sec-autofill">
+        <div class="help-section-header">
+          <h2 class="help-section-title">Autofill &amp; Applications</h2>
+          <span class="help-section-count">3</span>
+        </div>
+        <div class="help-accordion-list">
+          <!-- Item 3.1 -->
+          <article class="help-accordion-item" data-keywords="autofill job application forms saved answers linkedin salary">
+            <button type="button" class="help-accordion-trigger" aria-expanded="false">
+              <span>How does one-click autofill work?</span>
+              <span class="help-accordion-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div class="help-accordion-content">
+              <div class="help-accordion-body">
+                <p>Job application portals (like Greenhouse, Lever, Workday, and BambooHR) repeatedly ask for the same information. In Talorify, you can save your answers once under <strong>Saved Answers</strong>:</p>
+                <ul>
+                  <li>LinkedIn profile, GitHub, and Portfolio URLs</li>
+                  <li>Salary expectation &amp; target compensation</li>
+                  <li>Notice period &amp; earliest available start date</li>
+                  <li>Total years of relevant experience</li>
+                  <li>Work authorization, visa status, and relocation willingness</li>
+                </ul>
+                <p>When you're on a job application page, click <strong>Autofill Application</strong> in the side panel. Talorify automatically detects the form inputs and fills them in instantly.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 3.2 -->
+          <article class="help-accordion-item" data-keywords="sensitive questions demographic race gender submit safety privacy">
+            <button type="button" class="help-accordion-trigger" aria-expanded="false">
+              <span>Does autofill touch sensitive questions or submit applications automatically?</span>
+              <span class="help-accordion-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div class="help-accordion-content">
+              <div class="help-accordion-body">
+                <p><strong>Never.</strong> Talorify adheres to two strict rules regarding application forms:</p>
+                <ol>
+                  <li><strong>Zero demographic autofill:</strong> Talorify will never fill out questions regarding race, ethnicity, gender, sexual orientation, veteran status, or disability disclosures. You remain in full control of these responses.</li>
+                  <li><strong>Never auto-submits:</strong> Talorify never clicks the final "Submit Application" or "Send Application" button. You always review the filled form with your own eyes and submit it yourself.</li>
+                </ol>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 3.3 -->
+          <article class="help-accordion-item" data-keywords="mark as applied tracker interview prep questions history">
+            <button type="button" class="help-accordion-trigger" aria-expanded="false">
+              <span>What is "Mark as applied" and the AI Interview Prep feature?</span>
+              <span class="help-accordion-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div class="help-accordion-content">
+              <div class="help-accordion-body">
+                <p>When you submit an application, click <strong>Mark as applied</strong> in the side panel. Talorify saves the role, company name, date, link, and exact resume version you used.</p>
+                <p>For your 30 most recent applications, Pro members can also access <strong>AI Interview Prep</strong>: Talorify analyzes the specific job description alongside your tailored resume to generate likely technical and behavioral interview questions, complete with recommended response strategies in your authentic voice.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- SECTION 4: PLANS & LIMITS -->
+      <section class="help-section" data-category="billing" id="sec-billing">
+        <div class="help-section-header">
+          <h2 class="help-section-title">Plans, Billing &amp; Daily Limits</h2>
+          <span class="help-section-count">4</span>
+        </div>
+        <div class="help-accordion-list">
+          <!-- Item 4.1 -->
+          <article class="help-accordion-item" data-keywords="free vs pro plan difference limits price features">
+            <button type="button" class="help-accordion-trigger" aria-expanded="false">
+              <span>What is the difference between the Free plan and Pro?</span>
+              <span class="help-accordion-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div class="help-accordion-content">
+              <div class="help-accordion-body">
+                <p><strong>Free Plan:</strong></p>
+                <ul>
+                  <li>Generous daily tailoring allowance for real job applications.</li>
+                  <li>Store up to 3 base resumes.</li>
+                  <li>24-hour local tailoring history.</li>
+                  <li>Clean ATS-friendly PDF exports.</li>
+                </ul>
+                <p><strong>Pro Pass:</strong></p>
+                <ul>
+                  <li>Expanded daily tailoring allowance.</li>
+                  <li>Cover letter generation tailored to each specific job.</li>
+                  <li>AI Interview Prep questions tailored to your application.</li>
+                  <li>Store up to 15 base resumes.</li>
+                  <li>7-day history retention across devices.</li>
+                  <li>Word (.docx) and PDF export formats.</li>
+                  <li>Priority AI model processing.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 4.2 -->
+          <article class="help-accordion-item" data-keywords="daily limit quota reset midnight time zone allowance">
+            <button type="button" class="help-accordion-trigger" aria-expanded="false">
+              <span>When do daily tailoring limits reset?</span>
+              <span class="help-accordion-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div class="help-accordion-content">
+              <div class="help-accordion-body">
+                <p>Daily allowances reset every night at <strong>midnight in your own local time zone</strong> (for example, America/New_York, Europe/London, or Africa/Lagos).</p>
+                <p>You never have to calculate UTC or wait until an arbitrary server time; when your day begins, your fresh daily allowance is ready to go.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 4.3 -->
+          <article class="help-accordion-item" data-keywords="pass subscription recurring auto renew paddle payment">
+            <button type="button" class="help-accordion-trigger" aria-expanded="false">
+              <span>Do Pro passes automatically renew or bill my card again?</span>
+              <span class="help-accordion-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div class="help-accordion-content">
+              <div class="help-accordion-body">
+                <p><strong>No.</strong> We believe you shouldn't be trapped in endless recurring subscriptions for a temporary life event like job hunting.</p>
+                <p>Pro passes are purchased as one-off access periods:</p>
+                <ul>
+                  <li><strong>1 Week Pass:</strong> Ideal for intensive, short-term application sprints.</li>
+                  <li><strong>1 Month Pass:</strong> Best for active monthly job searches.</li>
+                  <li><strong>3 Months Pass:</strong> Perfect for a full hiring season.</li>
+                </ul>
+                <p>When your pass expires, you simply revert to the Free plan. You will never receive an unexpected auto-renewal charge.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 4.4 -->
+          <article class="help-accordion-item" data-keywords="refund 7 days policy paddle money back guarantee">
+            <button type="button" class="help-accordion-trigger" aria-expanded="false">
+              <span>What is your refund policy?</span>
+              <span class="help-accordion-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div class="help-accordion-content">
+              <div class="help-accordion-body">
+                <p>We provide a <strong>7-day money-back guarantee</strong> on all Pro passes. If you purchase Pro and find it is not right for you, simply reach out to <a href="mailto:supporttalorify@kre8mind.com">supporttalorify@kre8mind.com</a> within 7 days of purchase and we will issue a full refund without hassle.</p>
+                <p>You can read our complete policy on our <a href="/refund">Refund Policy</a> page.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- SECTION 5: PRIVACY & DATA SECURITY -->
+      <section class="help-section" data-category="privacy" id="sec-privacy">
+        <div class="help-section-header">
+          <h2 class="help-section-title">Privacy &amp; Data Security</h2>
+          <span class="help-section-count">3</span>
+        </div>
+        <div class="help-accordion-list">
+          <!-- Item 5.1 -->
+          <article class="help-accordion-item" data-keywords="privacy sell data advertisements tracking encryption">
+            <button type="button" class="help-accordion-trigger" aria-expanded="false">
+              <span>Does Talorify sell my resume or personal data?</span>
+              <span class="help-accordion-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div class="help-accordion-content">
+              <div class="help-accordion-body">
+                <p><strong>Never.</strong> We do not sell, rent, or monetize your personal data or your resume text, and we do not run advertisements. Your resume text is used solely to generate the tailored materials you request.</p>
+                <p>All communication between your browser, our secure servers, and AI providers occurs over encrypted TLS connections.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 5.2 -->
+          <article class="help-accordion-item" data-keywords="ai third party gemini google models privacy terms">
+            <button type="button" class="help-accordion-trigger" aria-expanded="false">
+              <span>How are third-party AI services used?</span>
+              <span class="help-accordion-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div class="help-accordion-content">
+              <div class="help-accordion-body">
+                <p>Talorify uses Google's Gemini enterprise AI models to handle the language processing required for matching and tailoring. When you tailor a resume, only the extracted job description and your resume text are transmitted to perform that specific request.</p>
+                <p>We do not train public AI models on your personal resume, and your data is processed according to enterprise privacy standards. See our full <a href="/privacy">Privacy Policy</a> for full details.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 5.3 -->
+          <article class="help-accordion-item" data-keywords="permissions chrome read browsing history all websites">
+            <button type="button" class="help-accordion-trigger" aria-expanded="false">
+              <span>Why does the Chrome extension request permission to read web pages?</span>
+              <span class="help-accordion-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div class="help-accordion-content">
+              <div class="help-accordion-body">
+                <p>Job postings are published across thousands of different websites&mdash;from global platforms like LinkedIn and Indeed to individual company portals on Greenhouse, Lever, SmartRecruiters, and Workday.</p>
+                <p>To detect job postings wherever you browse, Chrome requires the general page reading permission. <strong>Talorify only activates when you open the side panel on a job posting</strong>; it never logs or stores your browsing history.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- SECTION 6: TROUBLESHOOTING -->
+      <section class="help-section" data-category="troubleshooting" id="sec-troubleshooting">
+        <div class="help-section-header">
+          <h2 class="help-section-title">Troubleshooting &amp; Extension Help</h2>
+          <span class="help-section-count">3</span>
+        </div>
+        <div class="help-accordion-list">
+          <!-- Item 6.1 -->
+          <article class="help-accordion-item" data-keywords="no job detected error missing description paste manual">
+            <button type="button" class="help-accordion-trigger" aria-expanded="false">
+              <span>The extension says "No job detected on this page". What should I do?</span>
+              <span class="help-accordion-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div class="help-accordion-content">
+              <div class="help-accordion-body">
+                <p>If Talorify does not immediately highlight the job description:</p>
+                <ol>
+                  <li>Make sure you are on the actual job description page (not an overview search feed). On LinkedIn, click directly on the job card in the list to load its full details pane.</li>
+                  <li>Refresh the browser tab once and reopen the side panel.</li>
+                  <li><strong>Manual Paste fallback:</strong> If the posting is behind an uncommon frame or dynamic modal, you can simply click <strong>Paste Job Description</strong> in the side panel and paste the text directly.</li>
+                </ol>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 6.2 -->
+          <article class="help-accordion-item" data-keywords="side panel not opening chrome version update reload">
+            <button type="button" class="help-accordion-trigger" aria-expanded="false">
+              <span>The side panel is not opening when I click the icon.</span>
+              <span class="help-accordion-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div class="help-accordion-content">
+              <div class="help-accordion-body">
+                <p>Chrome's native Side Panel API requires Chrome version 116 or newer:</p>
+                <ul>
+                  <li>Open Chrome Settings &rarr; <strong>About Chrome</strong> to ensure your browser is up to date.</li>
+                  <li>Right-click the Talorify icon in the toolbar, select <strong>Manage extension</strong>, and toggle it off and back on.</li>
+                  <li>Restart Chrome. If you are on an enterprise-managed computer, ensure side panel permissions are not restricted by your organization.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 6.3 -->
+          <article class="help-accordion-item" data-keywords="delete account erase data remove resume gdpr">
+            <button type="button" class="help-accordion-trigger" aria-expanded="false">
+              <span>How do I delete my data or account?</span>
+              <span class="help-accordion-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div class="help-accordion-content">
+              <div class="help-accordion-body">
+                <p>You can delete individual base resumes or application entries directly inside the extension at any time with one click.</p>
+                <p>To request permanent deletion of your complete account and all records, message our team using the <strong>Contact Support</strong> button below or email <a href="mailto:supporttalorify@kre8mind.com">supporttalorify@kre8mind.com</a> with the subject <em>"Delete My Account"</em> and we will delete your records within 48 hours.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- BOTTOM DEDICATED SUPPORT CARD -->
+      <div class="help-bottom-card">
+        <div class="help-bottom-card-info">
+          <h3>Still have questions or running into an issue?</h3>
+          <p>Our dedicated support team is here to assist with extension installation, job detection on custom portals, or any tailoring questions.</p>
+        </div>
+        <div class="help-bottom-card-actions">
+          <button type="button" class="btn-bottom-support btn-open-support-modal">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            Send Support Message
+          </button>
+          <span class="help-bottom-meta">Average reply time: within 24 hours</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- DIRECT SUPPORT CONTACT MODAL -->
+  <dialog class="help-modal" id="supportModal" aria-labelledby="supportModalTitle">
+    <div class="help-modal-wrap">
+      <button type="button" class="help-modal-close" id="supportModalClose" aria-label="Close dialog">&times;</button>
+      <h3 class="help-modal-title" id="supportModalTitle">Contact Talorify Support</h3>
+      <p class="help-modal-desc">Send us a message and our team will get back to your email directly.</p>
+
+      <form id="supportHelpForm" action="https://formspree.io/f/xyeylwry" method="POST">
+        <input type="hidden" name="_subject" value="Talorify Help Center Inquiry" />
+
+        <div class="help-form-group">
+          <label for="supportName" class="help-form-label">Your Name</label>
+          <input type="text" id="supportName" name="name" class="help-form-input" placeholder="e.g. Alex Johnson" required />
+        </div>
+
+        <div class="help-form-group">
+          <label for="supportEmail" class="help-form-label">Your Email</label>
+          <input type="email" id="supportEmail" name="email" class="help-form-input" placeholder="alex@example.com" required />
+        </div>
+
+        <div class="help-form-group">
+          <label class="help-form-label" id="supportCategoryLabel">What can we help with?</label>
+          <div class="help-custom-select" id="supportCategorySelect">
+            <button type="button" class="help-select-trigger" id="supportCategoryTrigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="supportCategoryLabel supportCategoryValue">
+              <span id="supportCategoryValue">Job Detection / Specific Job Site Issue</span>
+              <span class="help-select-arrow" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </span>
+            </button>
+            <div class="help-select-dropdown" id="supportCategoryDropdown" role="listbox" aria-labelledby="supportCategoryLabel">
+              <div class="help-select-option is-selected" role="option" data-value="Job Detection / Specific Job Site Issue" aria-selected="true">Job Detection / Specific Job Site Issue</div>
+              <div class="help-select-option" role="option" data-value="Tailoring or Match Score Question" aria-selected="false">Tailoring or Match Score Question</div>
+              <div class="help-select-option" role="option" data-value="Autofill Question" aria-selected="false">Autofill Question</div>
+              <div class="help-select-option" role="option" data-value="Account or Billing / Pro Pass" aria-selected="false">Account or Billing / Pro Pass</div>
+              <div class="help-select-option" role="option" data-value="Bug Report" aria-selected="false">Bug Report</div>
+              <div class="help-select-option" role="option" data-value="Other Inquiry" aria-selected="false">Other Inquiry</div>
+            </div>
+            <input type="hidden" name="category" id="supportCategoryInput" value="Job Detection / Specific Job Site Issue" />
+          </div>
+        </div>
+
+        <div class="help-form-group">
+          <label for="supportMessage" class="help-form-label">How can we help?</label>
+          <textarea id="supportMessage" name="message" class="help-form-textarea" placeholder="Please provide as much detail as possible, including URLs of any job postings if relevant..." required></textarea>
+        </div>
+
+        <button type="submit" id="supportSubmitBtn" class="help-form-submit">
+          Send Message
+        </button>
+
+        <div id="supportFormStatus" class="help-form-status" role="status"></div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- MAIN FOOTER CARD (Same as landing page) -->
+  <div class="footer-wrap-container" style="max-width: 1120px; margin: 56px auto 48px; padding: 0 24px;">
+    <footer class="footer-card" id="siteFooter">
+      <div class="footer-grid-top">
+        <!-- Col 1: Brand & Tagline -->
+        <div class="footer-col-brand">
+          <a href="/" class="footer-logo-link" aria-label="Talorify Home">
+            <img src="assets/brand full logo.svg" alt="Talorify" class="footer-logo-img" />
+          </a>
+          <p class="footer-brand-bio">
+            The human-first AI to beat ATS filters & land interviews.
+          </p>
+          <a href="mailto:hellotalorify@kre8mind.com" class="footer-email-pill">
+            <span class="footer-email-tag">E-mail</span>
+            <span class="footer-email-val">hellotalorify@kre8mind.com</span>
+          </a>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="footer-col footer-col-links">
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-nav-list">
+            <li><a href="/#problem" class="footer-nav-link">Problem</a></li>
+            <li><a href="/#how-it-works" class="footer-nav-link">Process</a></li>
+            <li><a href="/#who" class="footer-nav-link">Audience</a></li>
+            <li><a href="/#features" class="footer-nav-link">Features</a></li>
+            <li><a href="/#promise" class="footer-nav-link">Our Promise</a></li>
+            <li><a href="/#pricing" class="footer-nav-link">Pricing</a></li>
+            <li><a href="/#testimonials" class="footer-nav-link">Testimonials</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Support -->
+        <div class="footer-col footer-col-support">
+          <h4 class="footer-col-title">Support</h4>
+          <ul class="footer-nav-list">
+            <li><a href="/#faq" class="footer-nav-link">FAQs</a></li>
+            <li><a href="/#contact" class="footer-nav-link">Contact Us</a></li>
+            <li><a href="mailto:hellotalorify@kre8mind.com?subject=Bug%20Report" class="footer-nav-link">Report a bug</a></li>
+            <li><a href="/help" class="footer-nav-link">Help Center</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Social Icons (LinkedIn, Product Hunt, X) & Creator on the same row -->
+      <div class="footer-mid-row">
+        <div class="footer-social-row">
+          <a href="https://www.linkedin.com/company/talorify/" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0 0-3.28 1.64 1.64 0 0 0 0 3.28m1.4 9.74V9.93H5.06v8.57h2.8z"/></svg>
+          </a>
+          <a href="https://www.producthunt.com/products/talorify" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Product Hunt">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14.5h-2.5V7.5H13c1.93 0 3.5 1.57 3.5 3.5s-1.57 3.5-3.5 3.5zm0-4.5h-1V10h1c.55 0 1 .45 1 1s-.45 1-1 1z"/></svg>
+          </a>
+          <a href="https://x.com/Talorify" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="X (Twitter)">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+        <div class="footer-creator-text">
+          <a href="https://kre8mind.com" target="_blank" rel="noopener noreferrer" class="footer-creator-link">A product by Kre8mind</a>
+        </div>
+      </div>
+
+      <hr class="footer-card-divider" />
+
+      <div class="footer-bar-bottom">
+        <div class="footer-copyright">
+          <span>&copy; 2026 Talorify. All rights reserved.</span>
+        </div>
+        <div class="footer-legal">
+          <a href="/privacy" class="legal-link">Privacy Policy</a>
+          <span class="legal-dot">&bull;</span>
+          <a href="/terms" class="legal-link">Terms of Service</a>
+          <span class="legal-dot">&bull;</span>
+          <a href="/refund" class="legal-link">Refund Policy</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="help.js"></script>
+</body>
+</html>

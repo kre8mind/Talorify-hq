@@ -19,6 +19,8 @@ const MIME_TYPES = {
 const server = http.createServer((req, res) => {
   let reqUrl = decodeURI(req.url.split('?')[0]);
   if (reqUrl === '/') reqUrl = '/index.html';
+  // Match Vercel's cleanUrls: /privacy serves privacy.html
+  if (!path.extname(reqUrl) && fs.existsSync(path.join(__dirname, reqUrl + '.html'))) reqUrl += '.html';
 
   const filePath = path.join(__dirname, reqUrl);
   const ext = path.extname(filePath).toLowerCase();

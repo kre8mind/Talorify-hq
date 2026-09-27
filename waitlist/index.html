@@ -4,33 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Primary Meta Tags -->
-  <title>Talorify — Get Past the Filters &amp; Land the Interview.</title>
-  <meta name="title" content="Talorify — Get Past the Filters &amp; Land the Interview." />
-  <meta name="description" content="Tailorify analyzes every job description and intelligently tailors your resume with the keywords that matter so you can stand out to ATS and recruiters." />
+  <title>Talorify | The Human-First AI to Beat ATS Filters & Land Interviews</title>
+  <meta name="title" content="Talorify | The Human-First AI to Beat ATS Filters & Land Interviews" />
+  <meta name="description" content="The human-first AI to beat ATS filters and land real interviews. Talorify reads any job posting, analyzes keywords against your real experience, and crafts tailored, ATS-ready resumes that sound genuinely human. Your details stay yours." />
   <meta name="theme-color" content="#FBFBF3" />
-  <link rel="icon" type="image/png" href="assets/Favicon.png" />
-  <link rel="apple-touch-icon" href="assets/Favicon.png" />
+  <link rel="icon" type="image/svg+xml" href="assets/Brandlogo icon complete.svg" />
+  <link rel="icon" type="image/png" href="assets/Brandlogo icon.png" />
+  <link rel="apple-touch-icon" href="assets/Brandlogo icon.png" />
 
   <!-- Open Graph / Facebook / LinkedIn / WhatsApp / Discord / Slack -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://talorify.kre8mind.com/" />
   <meta property="og:site_name" content="Talorify" />
-  <meta property="og:title" content="Talorify — Get Past the Filters &amp; Land the Interview." />
-  <meta property="og:description" content="Tailorify analyzes every job description and intelligently tailors your resume with the keywords that matter so you can stand out to ATS and recruiters." />
+  <meta property="og:title" content="Talorify | The Human-First AI to Beat ATS Filters & Land Interviews" />
+  <meta property="og:description" content="The human-first AI to beat ATS filters and land real interviews. Talorify reads any job posting, analyzes keywords against your real experience, and crafts tailored, ATS-ready resumes that sound genuinely human. Your details stay yours." />
   <meta property="og:image" content="https://talorify.kre8mind.com/assets/social-cover.png" />
   <meta property="og:image:secure_url" content="https://talorify.kre8mind.com/assets/social-cover.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1049" />
   <meta property="og:image:height" content="709" />
-  <meta property="og:image:alt" content="Talorify — Join the Waitlist" />
+  <meta property="og:image:alt" content="Talorify | The Human-First AI to Beat ATS Filters & Land Interviews" />
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://talorify.kre8mind.com/" />
-  <meta name="twitter:title" content="Talorify — Get Past the Filters &amp; Land the Interview." />
-  <meta name="twitter:description" content="Tailorify analyzes every job description and intelligently tailors your resume with the keywords that matter so you can stand out to ATS and recruiters." />
+  <meta name="twitter:title" content="Talorify | The Human-First AI to Beat ATS Filters & Land Interviews" />
+  <meta name="twitter:description" content="The human-first AI to beat ATS filters and land real interviews. Talorify reads any job posting, analyzes keywords against your real experience, and crafts tailored, ATS-ready resumes that sound genuinely human. Your details stay yours." />
   <meta name="twitter:image" content="https://talorify.kre8mind.com/assets/social-cover.png" />
-  <meta name="twitter:image:alt" content="Talorify — Join the Waitlist" />
+  <meta name="twitter:image:alt" content="Talorify | The Human-First AI to Beat ATS Filters & Land Interviews" />
   
   <!-- Typography: DM Sans (Main) & Baloo Chettan 2 (Support) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -40,6 +41,7 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="landing.css" />
 
   <!-- Canvas Confetti for celebratory waitlist signup -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
@@ -50,16 +52,27 @@
   <header class="site-header" id="header">
     <div class="header-container">
       <a href="#hero" class="brand-logo" aria-label="Talorify Home">
-        <img src="assets/Brand logo.png" alt="Talorify" class="logo-img" />
+        <img src="assets/brand full logo.svg" alt="Talorify" class="logo-img" />
       </a>
 
-      <nav class="nav-links" aria-label="Main Navigation">
-        <a href="#how-it-works" class="nav-link">How it works</a>
-        <a href="#contact" class="nav-link">Contact Us</a>
+      <nav class="nav-links" id="mainNavLinks" aria-label="Main Navigation">
+        <a href="#how-it-works" class="nav-link is-active">Process</a>
+        <a href="#who" class="nav-link">Audience</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <span class="nav-sliding-line" id="navSlidingLine" aria-hidden="true"></span>
       </nav>
 
       <div class="header-action">
-        <a href="#hero" class="btn-pill-black scroll-to-waitlist">Join waitlist</a>
+        <a href="https://chromewebstore.google.com/" target="_blank" rel="noopener" class="btn-pill-black btn-with-arrow" data-cta>
+          <span class="btn-text">Get Talorify</span>
+          <span class="btn-arrow-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </span>
+        </a>
       </div>
 
       <!-- Mobile Menu Toggle Button -->
@@ -72,9 +85,20 @@
 
     <!-- Mobile Drawer -->
     <div class="mobile-menu" id="mobileMenu">
-      <a href="#how-it-works" class="mobile-nav-link">How it works</a>
+      <a href="#how-it-works" class="mobile-nav-link">Process</a>
+      <a href="#who" class="mobile-nav-link">Audience</a>
+      <a href="#features" class="mobile-nav-link">Features</a>
+      <a href="#pricing" class="mobile-nav-link">Pricing</a>
       <a href="#contact" class="mobile-nav-link">Contact Us</a>
-      <a href="#hero" class="btn-pill-black mobile-cta scroll-to-waitlist">Join waitlist</a>
+      <a href="https://chromewebstore.google.com/" target="_blank" rel="noopener" class="btn-pill-black btn-with-arrow mobile-cta" data-cta>
+        <span class="btn-text">Get Talorify</span>
+        <span class="btn-arrow-badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </span>
+      </a>
     </div>
   </header>
 
@@ -83,127 +107,724 @@
     <section class="hero-section" id="hero">
       <div class="hero-container">
         <h1 class="hero-title">
-          Get Past the Filters<br />
+          Get Past the <span class="hero-icon-inline" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg></span> <em class="hero-italic">Filters</em><br />
           &amp; Land the Interview.
         </h1>
 
         <p class="hero-subtitle">
-          Tailorify analyzes every job description and intelligently tailors your resume with the keywords that matter so you can stand out to ATS and recruiters.
+          Talorify analyzes every job description and intelligently tailors your resume with<br class="desktop-br" />
+          the keywords that matter so you can stand out to ATS and recruiters.
         </p>
 
-        <!-- Waitlist Input Pill Form -->
-        <form class="waitlist-pill-form" id="heroWaitlistForm" novalidate>
-          <div class="pill-input-wrapper">
-            <input
-              type="email"
-              name="email"
-              id="heroEmailInput"
-              class="pill-input"
-              placeholder="email@company.com"
-              required
-              autocomplete="email"
-              aria-label="Email address for waitlist"
-            />
-            <button type="submit" class="btn-pill-black form-submit-btn" id="heroSubmitBtn">
-              <span class="btn-text">Join waitlist</span>
-            </button>
-          </div>
+        <div class="hero-buttons">
+          <a href="https://chromewebstore.google.com/" target="_blank" rel="noopener" class="btn-pill-black btn-with-arrow" data-cta>
+            <span class="btn-text">Get Talorify</span>
+            <span class="btn-arrow-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </span>
+          </a>
+          <a href="#how-it-works" class="btn-pill-soft">
+            <span>how it works</span>
+            <svg class="btn-play" viewBox="0 0 24 24" width="11" height="11" fill="currentColor" aria-hidden="true"><polygon points="7 5 19 12 7 19 7 5"></polygon></svg>
+          </a>
+        </div>
+
+        <!-- The hero sign-up form is used by app.js; it is hidden here because the hero button scrolls to the bottom sign-up instead -->
+        <form class="waitlist-pill-form" id="heroWaitlistForm" novalidate style="display:none">
+          <div class="pill-input-wrapper"><input type="email" name="email" id="heroEmailInput" class="pill-input" placeholder="" /><button type="submit" class="btn-pill-black form-submit-btn" id="heroSubmitBtn"><span class="btn-text">Join waitlist</span></button></div>
           <div class="form-feedback" id="heroFeedback" role="alert" aria-live="polite"></div>
         </form>
+
+        <!-- A small window that plays the three steps in a loop (filled in by landing.js) -->
+        <div class="hero-demo" id="heroDemo" aria-hidden="true" hidden>
+          <div class="hero-demo-stage"></div>
+          <div class="hero-demo-dots"><i></i><i></i><i></i></div>
+        </div>
       </div>
     </section>
 
-    <!-- HOW IT WORKS SECTION -->
-    <section class="how-it-works-section reveal-on-scroll" id="how-it-works">
+        <!-- THE PROBLEM -->
+    <section class="lp-section fm-scroll-section" id="problem">
       <div class="section-container">
-        <!-- Badge Tag -->
-        <div class="badge-wrapper">
-          <span class="pill-badge">How it works</span>
+        <div class="badge-wrapper problem-intro-center"><span class="pill-badge problem-badge-plain">The problem</span></div>
+        <h2 class="how-main-title lp-title problem-intro-center reading-title">One resume can't fit every job.</h2>
+        <p class="lp-lead problem-intro-center">Every posting asks for something a little different. Rewriting your resume each time is slow, so most of us send the same one everywhere and hope.</p>
+
+        <!-- Three pills: each fills with ink as it plays, then hands off to the next. Click any of them to jump straight there. -->
+        <div class="problem-pills">
+          <button type="button" class="problem-pill is-active" data-problem="0" tabindex="0" role="button" aria-pressed="true" aria-controls="problem-card">
+            <span class="problem-pill-fill" aria-hidden="true">Problem 1</span>
+            <span class="problem-pill-text">Problem 1</span>
+          </button>
+          <button type="button" class="problem-pill" data-problem="1" tabindex="0" role="button" aria-pressed="false" aria-controls="problem-card">
+            <span class="problem-pill-fill" aria-hidden="true">Problem 2</span>
+            <span class="problem-pill-text">Problem 2</span>
+          </button>
+          <button type="button" class="problem-pill" data-problem="2" tabindex="0" role="button" aria-pressed="false" aria-controls="problem-card">
+            <span class="problem-pill-fill" aria-hidden="true">Problem 3</span>
+            <span class="problem-pill-text">Problem 3</span>
+          </button>
         </div>
 
-        <!-- Section Header -->
-        <div class="how-header-row">
-          <div class="how-title-col">
-            <h2 class="how-main-title">
-              From generic resume to interview ready
-            </h2>
+        <div class="problem-stage lp-stagger">
+          <div class="problem-media">
+            <img src="assets/the problem backgrond.jpg" alt="Someone working at a desk set up outdoors, in the middle of a field" class="problem-media-img" />
+            <div class="problem-card" id="problem-card"
+                 data-titles="Using the same resume, everywhere|Getting scanned before a person reads it|Getting skimmed in seconds"
+                 data-texts="Tailoring by hand takes an hour you don't have, so it gets skipped, and the job that mattered gets the same resume as the rest.|Many employers use applicant tracking systems that screen resumes before a person sees them. The words and the layout matter.|A recruiter gives a resume moments. If the match to the role isn't obvious right away, it's easy to miss.">
+              <img src="assets/warning.png" alt="" class="problem-warning-icon" aria-hidden="true" />
+              <div class="problem-card-content">
+                <h3 class="problem-card-title">Using the same resume, everywhere</h3>
+                <div class="problem-card-rule"></div>
+                <p class="problem-card-text">Tailoring by hand takes an hour you don't have, so it gets skipped, and the job that mattered gets the same resume as the rest.</p>
+              </div>
+            </div>
           </div>
-          <div class="how-desc-col">
-            <p class="how-side-text">
-              No manual keyword stuffing. No formatting headaches.<br class="desktop-br" />
-              Just precise job-matching tailor your brower.
-            </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS: built from the user's own measured spec (1207px design), not a reference file. Plain
+         CSS (landing.css section 3) + one dedicated script (how-it-works.js) - no scroll/animation library
+         drives this section's own behavior. See how-it-works.js's header comment for the Lenis note. -->
+    <section class="hiw2" id="how-it-works">
+      <div class="hiw2-pin">
+        <div class="hiw2-container">
+          <div class="hiw2-head">
+            <div class="hiw2-head-left">
+              <p class="hiw2-label">How it works</p>
+              <h2 class="hiw2-title reading-title">From one resume<br>to the right resume</h2>
+            </div>
+            <p class="hiw2-desc">Every posting asks for something a little different. Rewriting your resume each time is slow, so most of us send the same one everywhere and hope.</p>
+          </div>
+
+          <div class="hiw2-body">
+            <ol class="hiw2-steps" id="hiwSteps">
+              <div class="hiw2-highlight" id="hiwHighlight" aria-hidden="true"></div>
+
+              <li class="hiw2-step is-active" data-step="0" tabindex="0" role="button" aria-current="step">
+                <div class="hiw2-step-head">
+                  <span class="hiw2-step-num">Step 01</span>
+                  <h3 class="hiw2-step-title">Add your resume</h3>
+                </div>
+                <div class="hiw2-step-desc">
+                  <div class="hiw2-step-desc-inner">
+                    <p>Upload it once as a PDF. Talorify keeps it ready, so you never retype your details.</p>
+                  </div>
+                </div>
+                <div class="hiw2-mobile-photo-slot"></div>
+              </li>
+
+              <li class="hiw2-step" data-step="1" tabindex="0" role="button" aria-current="false">
+                <div class="hiw2-step-head">
+                  <span class="hiw2-step-num">Step 02</span>
+                  <h3 class="hiw2-step-title">Open any job</h3>
+                </div>
+                <div class="hiw2-step-desc">
+                  <div class="hiw2-step-desc-inner">
+                    <p>Browse LinkedIn, Indeed, Greenhouse and more. Talorify spots the job and shows how well your resume matches it, before you change a word.</p>
+                  </div>
+                </div>
+                <div class="hiw2-mobile-photo-slot"></div>
+              </li>
+
+              <li class="hiw2-step" data-step="2" tabindex="0" role="button" aria-current="false">
+                <div class="hiw2-step-head">
+                  <span class="hiw2-step-num">Step 03</span>
+                  <h3 class="hiw2-step-title">Tailor, Download or Autofill</h3>
+                </div>
+                <div class="hiw2-step-desc">
+                  <div class="hiw2-step-desc-inner">
+                    <p>One click reshapes your summary, experience and skills for that job, and every fact stays true. Download it as a PDF or Word file, or let Talorify autofill the application for you.</p>
+                  </div>
+                </div>
+                <div class="hiw2-mobile-photo-slot"></div>
+              </li>
+            </ol>
+
+            <div class="hiw2-photo-col" id="hiwPhotoCol">
+              <div class="hiw2-photo" id="hiwPhoto">
+                <div class="hiw2-card-wrap">
+
+                  <!-- CARD 1 -->
+                  <div class="hiw2-card is-active" data-card="0" aria-hidden="false">
+                    <span class="hiw2-badge">Demo</span>
+                    <div class="hiw2-c-title">Select a base resume <span class="hiw2-plus">+</span></div>
+                    <div class="hiw2-list">
+                      <div class="hiw2-row sel"><span class="hiw2-radio"></span><div><b>Your_Resume.pdf</b><small>Added today</small></div><span class="hiw2-kebab">⋮</span></div>
+                      <div class="hiw2-row"><span class="hiw2-radio"></span><div><b>Resume_Product.pdf</b><small>Added last week</small></div><span class="hiw2-kebab">⋮</span></div>
+                      <div class="hiw2-row"><span class="hiw2-radio"></span><div><b>Resume_Design.pdf</b><small>Added last month</small></div><span class="hiw2-kebab">⋮</span></div>
+                    </div>
+                    <p class="hiw2-note">Upload once. Use it for every job.</p>
+                    <p class="hiw2-cta-text">Talorify Resume</p>
+                  </div>
+
+                  <!-- CARD 2 -->
+                  <div class="hiw2-card" data-card="1" aria-hidden="true">
+                    <span class="hiw2-badge">Demo</span>
+                    <div class="hiw2-box">
+                      <div class="hiw2-lbl">Job detected</div>
+                      <div style="font-size:15px;margin-top:6px">Product Designer</div>
+                      <div style="font-size:14px;color:var(--muted)">Acme Studio</div>
+                    </div>
+                    <div class="hiw2-box">
+                      <div class="hiw2-ba"><div><div class="hiw2-lbl">Match before tailoring</div><div style="font-size:14px;margin-top:4px">Your resume vs this job</div></div><strong style="font-size:18px"><span data-count="61">61</span>%</strong></div>
+                      <div class="hiw2-stats">
+                        <div><span class="hiw2-lbl">Skills</span><strong>64%</strong></div>
+                        <div><span class="hiw2-lbl">Experience</span><strong>82%</strong></div>
+                        <div><span class="hiw2-lbl">Impact</span><strong>21%</strong></div>
+                        <div><span class="hiw2-lbl">ATS</span><strong>71%</strong></div>
+                      </div>
+                    </div>
+                    <button class="hiw2-btn" tabindex="-1">Talorify Resume</button>
+                  </div>
+
+                  <!-- CARD 3 -->
+                  <div class="hiw2-card" data-card="2" aria-hidden="true">
+                    <span class="hiw2-badge">Demo</span>
+                    <div class="hiw2-lbl">Tailored for</div>
+                    <div style="font-size:16px;margin:4px 0 12px">Product Designer at Acme Studio</div>
+                    <div class="hiw2-box" style="background:#fff;border:1px solid #EFEFE8">
+                      <div class="hiw2-ba">
+                        <div><div class="hiw2-lbl">Before</div><strong>61%</strong></div>
+                        <span style="color:var(--muted);padding-bottom:8px">⟶</span>
+                        <div style="text-align:right"><div class="hiw2-lbl">After</div><strong><span data-count="88" data-from="61">88</span>%</strong></div>
+                      </div>
+                    </div>
+                    <div class="hiw2-bar"><i></i></div>
+                    <ul class="hiw2-bullets">
+                      <li>Summary rewritten for this role</li>
+                      <li>Skills reordered to match the job</li>
+                      <li>Experience reworded. Every fact unchanged</li>
+                    </ul>
+                    <div class="hiw2-btns">
+                      <button class="hiw2-btn" tabindex="-1">Download PDF</button>
+                      <button class="hiw2-btn ghost" tabindex="-1">Word</button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO IT'S FOR: rebuilt from the user's own screenshot (audience.png), not a reference file. Prefixed
+         who2- throughout so nothing here can collide with any other section. See who-carousel.js for the
+         rotation logic - four real cards fill four visible slots, so "infinite loop" is just relabelling
+         which of the four sits in which slot, no cloning needed. -->
+    <section class="lp-section who2 fm-scroll-section" id="who">
+      <div class="section-container">
+        <div class="who2-head">
+          <div>
+            <div class="badge-wrapper"><span class="pill-badge">Who it's for</span></div>
+            <h2 class="how-main-title who2-title reading-title">Built for anyone tired<br>of getting filtered out.</h2>
+          </div>
+          <p class="who2-desc">Whether you are sending out 50 resumes a week or trying to break into a brand-new industry, we make sure your application speaks the recruiter's language.</p>
+        </div>
+
+        <div class="who2-carousel fm-scroll-card" id="whoCarousel">
+          <div class="who2-track" id="whoTrack">
+            <button class="who2-card" type="button" data-title="Active job seekers">
+              <span class="who2-card-photo"><img src="assets/Active job seekeer.jpg" alt="Active job seekers" loading="lazy"></span>
+              <span class="who2-card-body">
+                <span class="who2-card-title">Active job seekers</span>
+                <span class="who2-card-desc">Applying to many roles a week and tired of rewriting the same resume over and over.</span>
+              </span>
+            </button>
+            <button class="who2-card" type="button" data-title="Busy professionals">
+              <span class="who2-card-photo"><img src="assets/Busy professionals.jpg" alt="Busy professionals" loading="lazy"></span>
+              <span class="who2-card-body">
+                <span class="who2-card-title">Busy professionals</span>
+                <span class="who2-card-desc">Keep your options open without spending your evenings on resume edits.</span>
+              </span>
+            </button>
+            <button class="who2-card" type="button" data-title="Career changers">
+              <span class="who2-card-photo"><img src="assets/Career changers.jpg" alt="Career changers" loading="lazy"></span>
+              <span class="who2-card-body">
+                <span class="who2-card-title">Career changers</span>
+                <span class="who2-card-desc">Show how your experience fits a new field, in the words that field uses.</span>
+              </span>
+            </button>
+            <button class="who2-card" type="button" data-title="New graduates">
+              <span class="who2-card-photo"><img src="assets/Graduate.jpg" alt="New graduates" loading="lazy"></span>
+              <span class="who2-card-body">
+                <span class="who2-card-title">New graduates</span>
+                <span class="who2-card-desc">Make limited experience speak clearly to each role you go after.</span>
+              </span>
+            </button>
           </div>
         </div>
 
-        <!-- Interactive 3-Step Component -->
-        <div class="how-steps-interactive">
-          <!-- Left Column: Steps List -->
-          <div class="steps-selector-list" id="stepsSelector">
-            <!-- Step 01 -->
-            <div class="step-card-tab active" data-step="1" tabindex="0" role="button" aria-pressed="true">
-              <span class="step-num-label">Step 01</span>
-              <h3 class="step-heading">Upload your master resume</h3>
-              <div class="step-desc-wrapper">
-                <p class="step-desc-text">
-                  Drop in your master resume and let Tailorify securely analyze your background, skills, and career history so you never have to re-enter your details.
-                </p>
-                <div class="step-mobile-visual">
-                  <img src="assets/step 1.png" alt="Upload your master resume" class="step-mobile-img" />
-                </div>
-              </div>
-            </div>
+        <div class="who2-progress" id="whoProgress" role="tablist" aria-label="Who it's for slides"></div>
+      </div>
+    </section>
 
-            <!-- Step 02 -->
-            <div class="step-card-tab" data-step="2" tabindex="0" role="button" aria-pressed="false">
-              <span class="step-num-label">Step 02</span>
-              <h3 class="step-heading">Auto-detect any role</h3>
-              <div class="step-desc-wrapper">
-                <p class="step-desc-text">
-                  Browse any job posting and let Tailorify automatically identify the key requirements, skills, and recruiter keywords in seconds.
-                </p>
-                <div class="step-mobile-visual">
-                  <img src="assets/step 2.png" alt="Auto-detect any role" class="step-mobile-img" />
-                </div>
-              </div>
-            </div>
+    <!-- FEATURES TIMELINE -->
+    <section class="lp-section features-section fm-scroll-section" id="features">
+      <div class="section-container">
+        <div class="features-head">
+          <div class="features-head-left">
+            <div class="badge-wrapper"><span class="pill-badge">Features</span></div>
+            <h2 class="how-main-title features-title reading-title">Everything for one<br>application, in one place.</h2>
+          </div>
+          <p class="features-desc">Start with a match score and a tailored resume. Add a cover letter, fill in the form, and keep track of where you applied.</p>
+        </div>
 
-            <!-- Step 03 -->
-            <div class="step-card-tab" data-step="3" tabindex="0" role="button" aria-pressed="false">
-              <span class="step-num-label">Step 03</span>
-              <h3 class="step-heading">Precision weave &amp; export</h3>
-              <div class="step-desc-wrapper">
-                <p class="step-desc-text">
-                  Intelligently weave essential keywords into your existing experience and export an ATS-optimized, recruiter-ready resume.
-                </p>
-                <div class="step-mobile-visual">
-                  <img src="assets/step 3.png" alt="Precision weave and export" class="step-mobile-img" />
-                </div>
+        <div class="features-divider" aria-hidden="true"></div>
+
+        <div class="features-timeline" id="featuresTimeline">
+          <!-- Fluid water stream line running down the spine -->
+          <div class="features-spine" aria-hidden="true">
+            <div class="features-spine-track"></div>
+            <div class="features-spine-stream" id="featuresStream"></div>
+          </div>
+
+          <!-- Feature Item 1 (Right) -->
+          <div class="features-item is-right" data-feature="0">
+            <div class="features-item-icon-wrap">
+              <span class="features-icon">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9"/>
+                  <circle cx="12" cy="12" r="5"/>
+                  <circle cx="12" cy="12" r="1.2" fill="currentColor"/>
+                </svg>
+              </span>
+            </div>
+            <div class="features-item-body">
+              <h3 class="features-item-title">Match score and ATS check</h3>
+              <p class="features-item-text">See how well your resume fits the job, and where it falls short, before you change anything.</p>
+            </div>
+          </div>
+
+          <!-- Feature Item 2 (Left) -->
+          <div class="features-item is-left" data-feature="1">
+            <div class="features-item-icon-wrap">
+              <span class="features-icon">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="16" y1="13" x2="8" y2="13"/>
+                  <line x1="16" y1="17" x2="8" y2="17"/>
+                  <line x1="10" y1="9" x2="8" y2="9"/>
+                </svg>
+              </span>
+            </div>
+            <div class="features-item-body">
+              <h3 class="features-item-title">A resume tailored to the role</h3>
+              <p class="features-item-text">Your summary, experience and skills, rewritten for the job. Download it as a PDF, or as Word with Pro.</p>
+            </div>
+          </div>
+
+          <!-- Feature Item 3 (Right) -->
+          <div class="features-item is-right" data-feature="2">
+            <div class="features-item-icon-wrap">
+              <span class="features-icon">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="5" width="18" height="14" rx="2"/>
+                  <polyline points="3 7 12 13 21 7"/>
+                </svg>
+              </span>
+            </div>
+            <div class="features-item-body">
+              <h3 class="features-item-title">Cover letters</h3>
+              <p class="features-item-text">A letter written from your tailored resume and the job, in the tone you choose.</p>
+            </div>
+          </div>
+
+          <!-- Feature Item 4 (Left) -->
+          <div class="features-item is-left" data-feature="3">
+            <div class="features-item-icon-wrap">
+              <span class="features-icon">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="4" width="18" height="16" rx="3"/>
+                  <path d="M16 2v4M8 2v4"/>
+                  <path d="m9 14 2 2 4-4"/>
+                </svg>
+              </span>
+            </div>
+            <div class="features-item-body">
+              <h3 class="features-item-title">AutoFill</h3>
+              <p class="features-item-text">Fill in job application forms for you, with your resume attached. You review everything first.</p>
+            </div>
+          </div>
+
+          <!-- Feature Item 5 (Right) -->
+          <div class="features-item is-right" data-feature="4">
+            <div class="features-item-icon-wrap">
+              <span class="features-icon">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="9" y1="6" x2="20" y2="6"/>
+                  <line x1="9" y1="12" x2="20" y2="12"/>
+                  <line x1="9" y1="18" x2="20" y2="18"/>
+                  <circle cx="4" cy="6" r="1.2" fill="currentColor"/>
+                  <circle cx="4" cy="12" r="1.2" fill="currentColor"/>
+                  <circle cx="4" cy="18" r="1.2" fill="currentColor"/>
+                </svg>
+              </span>
+            </div>
+            <div class="features-item-body">
+              <h3 class="features-item-title">Application Tracker</h3>
+              <p class="features-item-text">Mark each job you applied to, and download the exact resume you sent whenever you need it.</p>
+            </div>
+          </div>
+
+          <!-- Feature Item 6 (Left) -->
+          <div class="features-item is-left" data-feature="5">
+            <div class="features-item-icon-wrap">
+              <span class="features-icon">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                </svg>
+              </span>
+            </div>
+            <div class="features-item-body">
+              <h3 class="features-item-title">Interview Prep</h3>
+              <p class="features-item-text">Likely questions for the job, with answers built only from your own resume.</p>
+            </div>
+          </div>
+
+          <!-- Terminal Dot -->
+          <div class="features-spine-end" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE PROMISE: Rebuilt from the user's design with asymmetric dark, frosted-glass and white cards overlapping the daisy field -->
+    <section class="lp-section promise-section" id="promise">
+      <div class="promise-container">
+        <div class="promise-grid" id="promiseGrid">
+          <!-- Col 1: Left / Dark (Sunk partially behind the left grass slope) -->
+          <div class="promise-col promise-col--left">
+            <div class="promise-card promise-card--dark" data-promise="0">
+              <div class="promise-card-head promise-card-head--rev">
+                <span class="promise-card-line"></span>
+                <span class="promise-card-icon-pill">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4"/>
+                    <path d="M14 13.12c0 2.38 0 6.38-1 8.88"/>
+                    <path d="M17.29 21.02c.12-.6.43-2.3.5-3.02 0-.7-.1-1.4-.3-2"/>
+                    <path d="M2 12a10 10 0 0 1 18-6"/>
+                    <path d="M2 16h.01"/>
+                    <path d="M21.8 16c.2-2 .13-5.35 0-6"/>
+                    <path d="M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2"/>
+                    <path d="M8.65 22c.21-.66.45-1.32.57-2"/>
+                    <path d="M9 6.8a6 6 0 0 1 9 5.2v2"/>
+                  </svg>
+                </span>
+              </div>
+              <h3 class="promise-card-title">Your details are never rewritten</h3>
+              <p class="promise-card-text">Your name, contact details, education, projects and certifications stay exactly as you wrote them.</p>
+            </div>
+          </div>
+
+          <!-- Col 2: Center / Heading + Frosted Glass Card Overlapping Grass -->
+          <div class="promise-col promise-col--center">
+            <div class="promise-header">
+              <div class="badge-wrapper"><span class="pill-badge">Our promise</span></div>
+              <h2 class="how-main-title promise-title reading-title">Your story<br>stays yours.</h2>
+            </div>
+            <div class="promise-card promise-card--glass" data-promise="1">
+              <div class="promise-card-head">
+                <span class="promise-card-icon-pill">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M6 3h12l4 6-10 12L2 9z"/>
+                    <path d="M2 9h20"/>
+                    <path d="m10 3 2 6 2-6"/>
+                  </svg>
+                </span>
+                <span class="promise-card-line"></span>
+              </div>
+              <h3 class="promise-card-title">Nothing is made up</h3>
+              <p class="promise-card-text">Talorify only reshapes what is already true about you. It never invents experience or skills.</p>
+            </div>
+          </div>
+
+          <!-- Col 3: Right / Crisp White (Elevated on the right) -->
+          <div class="promise-col promise-col--right">
+            <div class="promise-card promise-card--white" data-promise="2">
+              <div class="promise-card-head">
+                <span class="promise-card-icon-pill">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M22 11l-3-2-3 2v4c0 3 3 5 3 5s3-2 3-5v-4z"/>
+                  </svg>
+                </span>
+                <span class="promise-card-line"></span>
+              </div>
+              <h3 class="promise-card-title">Your data is not for sale</h3>
+              <p class="promise-card-text">Your resume goes to an AI service only to write the version you asked for. We don't sell or rent your data.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- The Grassy Mound with Daisies (Anchored flush at the bottom ending of the section) -->
+      <div class="promise-field-bg" aria-hidden="true">
+        <img src="assets/field our promise.png" alt="" class="promise-field-img" />
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS & OUR PROMISE end above; PRICING follows -->
+    <!-- PRICING SECTION -->
+    <section class="pricing-section fm-scroll-section" id="pricing">
+      <div class="section-container">
+        <div class="pricing-head">
+          <h2 class="pricing-title reading-title">Start free. Go Pro for as long as your search lasts.</h2>
+          <p class="pricing-sub">Try Talorify on real applications for free. Pick Pro for a week, a month, or a season. You are not signing up for a lifetime. Every plan has generous daily limits that start again at midnight, in your own time zone.</p>
+        </div>
+
+        <div class="billing-toggle-wrapper">
+          <div class="billing-toggle" role="group" aria-label="Choose plan duration" id="billingToggle">
+            <div class="billing-pill-slider" id="billingSlider" aria-hidden="true"></div>
+            <button type="button" class="billing-option" data-billing="week" aria-pressed="false">1 week</button>
+            <button type="button" class="billing-option is-active" data-billing="month" aria-pressed="true">1 month</button>
+            <button type="button" class="billing-option" data-billing="quarter" aria-pressed="false">3 months</button>
+          </div>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Free Card -->
+          <article class="plan-card fm-scroll-card plan-card-free" aria-labelledby="planFreeName">
+            <h3 class="plan-name" id="planFreeName">Free</h3>
+            <div class="plan-price">
+              <span class="plan-amount">$0</span>
+              <span class="plan-period">Forever</span>
+            </div>
+            <p class="plan-billed">No card needed, try it today on your application</p>
+            <a href="#hero" class="btn-card-gray scroll-to-waitlist" data-cta>Get Talorify</a>
+            <div class="plan-divider"></div>
+            <ul class="plan-features">
+              <li><svg class="plan-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" stroke-dasharray="3.2 2.8"/><path d="M8.5 12.2l2.5 2.5 4.8-4.8"/></svg><span>06 tailorings a day</span></li>
+              <li><svg class="plan-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" stroke-dasharray="3.2 2.8"/><path d="M8.5 12.2l2.5 2.5 4.8-4.8"/></svg><span>Match score and ATS check for every job</span></li>
+              <li><svg class="plan-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" stroke-dasharray="3.2 2.8"/><path d="M8.5 12.2l2.5 2.5 4.8-4.8"/></svg><span>03 cover letters a day</span></li>
+              <li><svg class="plan-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" stroke-dasharray="3.2 2.8"/><path d="M8.5 12.2l2.5 2.5 4.8-4.8"/></svg><span>Download as PDF only</span></li>
+              <li><svg class="plan-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" stroke-dasharray="3.2 2.8"/><path d="M8.5 12.2l2.5 2.5 4.8-4.8"/></svg><span>Up to 03 base resumes</span></li>
+              <li><svg class="plan-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" stroke-dasharray="3.2 2.8"/><path d="M8.5 12.2l2.5 2.5 4.8-4.8"/></svg><span>Recent tailorings kept for 24 hours</span></li>
+              <li><svg class="plan-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" stroke-dasharray="3.2 2.8"/><path d="M8.5 12.2l2.5 2.5 4.8-4.8"/></svg><span>Track up to 3 applications</span></li>
+            </ul>
+          </article>
+
+          <!-- Pro Card -->
+          <article class="plan-card fm-scroll-card plan-card-pro" aria-labelledby="planProName">
+            <div class="plan-banner">
+              <img src="assets/pro banner.png" alt="Talorify Pro" class="plan-banner-img">
+            </div>
+            <div class="plan-pro-inner">
+              <div class="plan-pro-top">
+                <h3 class="plan-name" id="planProName">Pro</h3>
+                <span class="plan-flag" id="proFlag">Most popular</span>
+              </div>
+              <div class="plan-price" aria-live="polite">
+                <span class="plan-amount" id="proAmount">$9</span>
+                <span class="plan-period" id="proPeriod">for 1 month</span>
+              </div>
+              <p class="plan-billed" id="proBilled">That is about 30 cents a day. Save $8 against paying weekly.</p>
+              <a href="#hero" class="btn-card-black scroll-to-waitlist" data-cta>Get Talorify</a>
+              <div class="plan-divider"></div>
+              <ul class="plan-features">
+                <li><svg class="plan-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" stroke-dasharray="3.2 2.8"/><path d="M8.5 12.2l2.5 2.5 4.8-4.8"/></svg><span>Everything in Free, plus:</span></li>
+                <li><svg class="plan-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" stroke-dasharray="3.2 2.8"/><path d="M8.5 12.2l2.5 2.5 4.8-4.8"/></svg><span>30 tailorings a day</span></li>
+                <li><svg class="plan-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" stroke-dasharray="3.2 2.8"/><path d="M8.5 12.2l2.5 2.5 4.8-4.8"/></svg><span>30 cover letters a day</span></li>
+                <li><svg class="plan-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" stroke-dasharray="3.2 2.8"/><path d="M8.5 12.2l2.5 2.5 4.8-4.8"/></svg><span>Download as PDF and Word (.docx)</span></li>
+                <li><svg class="plan-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" stroke-dasharray="3.2 2.8"/><path d="M8.5 12.2l2.5 2.5 4.8-4.8"/></svg><span>Autofill job applications</span></li>
+                <li><svg class="plan-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" stroke-dasharray="3.2 2.8"/><path d="M8.5 12.2l2.5 2.5 4.8-4.8"/></svg><span>Up to 15 base resumes</span></li>
+                <li><svg class="plan-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" stroke-dasharray="3.2 2.8"/><path d="M8.5 12.2l2.5 2.5 4.8-4.8"/></svg><span>Replace a resume file without starting over</span></li>
+                <li><svg class="plan-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" stroke-dasharray="3.2 2.8"/><path d="M8.5 12.2l2.5 2.5 4.8-4.8"/></svg><span>Recent tailorings kept for 7 days</span></li>
+                <li><svg class="plan-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" stroke-dasharray="3.2 2.8"/><path d="M8.5 12.2l2.5 2.5 4.8-4.8"/></svg><span>Track every application, and download the resume you sent</span></li>
+                <li><svg class="plan-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5" stroke-dasharray="3.2 2.8"/><path d="M8.5 12.2l2.5 2.5 4.8-4.8"/></svg><span>10 interview preps a day, from your own resume</span></li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <ul class="pricing-assurances">
+          <li>7-day refund</li>
+          <li>Secure checkout by Paddle</li>
+          <li>Paid once, never renews by itself</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION (Directly after Pricing) -->
+    <section class="testimonials-section fm-scroll-section" id="testimonials">
+      <div class="section-container testimonials-container">
+        <div class="testimonials-head">
+          <div class="badge-wrapper"><span class="pill-badge">Early Access</span></div>
+          <h2 class="how-main-title lp-title reading-title">Early Tester Feedback</h2>
+        </div>
+
+        <div class="testi-card-container fm-scroll-card">
+          <!-- Main Testimonial Card with Counter in top-right -->
+          <div class="testi-single-card">
+            <div class="testi-card-top-bar">
+              <span class="testi-counter" id="testiCounter">1/4</span>
+            </div>
+            <div class="testi-quote-viewport">
+              <div class="testi-slide is-active" data-slide="0">
+                <p class="testi-quote-text">&ldquo;I used to spend an hour rewriting my resume for every posting. Now it's minutes, and it actually reads like it was written for that job&rdquo;.</p>
+              </div>
+              <div class="testi-slide" data-slide="1">
+                <p class="testi-quote-text">&ldquo;The match score told me exactly what was missing before I even applied. That alone changed how many callbacks I got&rdquo;.</p>
+              </div>
+              <div class="testi-slide" data-slide="2">
+                <p class="testi-quote-text">&ldquo;Switching careers meant my old resume didn't speak the new field's language. This got it there without inventing anything&rdquo;.</p>
+              </div>
+              <div class="testi-slide" data-slide="3">
+                <p class="testi-quote-text">&ldquo;I apply to a lot of roles a week. Having one resume that adjusts itself instead of ten versions in a folder is the whole point&rdquo;.</p>
               </div>
             </div>
           </div>
 
-          <!-- Right Column: Step Image Viewer -->
-          <div class="step-visual-display">
-            <div class="step-image-frame" id="stepImageFrame">
-              <img
-                src="assets/step 1.png"
-                alt="Step 1: Upload your master resume"
-                class="step-visual-img active"
-                id="stepImg1"
-              />
-              <img
-                src="assets/step 2.png"
-                alt="Step 2: Auto-detect any role"
-                class="step-visual-img"
-                id="stepImg2"
-              />
-              <img
-                src="assets/step 3.png"
-                alt="Step 3: Precision weave and export"
-                class="step-visual-img"
-                id="stepImg3"
-              />
+          <!-- 4 Dash Indicators with Fluid Progress Fills -->
+          <div class="testi-dashes-bar" id="testiDashes" role="tablist" aria-label="Testimonial slides">
+            <button type="button" class="testi-dash is-active" data-dash="0" aria-label="Slide 1"><span class="testi-dash-progress"></span></button>
+            <button type="button" class="testi-dash" data-dash="1" aria-label="Slide 2"><span class="testi-dash-progress"></span></button>
+            <button type="button" class="testi-dash" data-dash="2" aria-label="Slide 3"><span class="testi-dash-progress"></span></button>
+            <button type="button" class="testi-dash" data-dash="3" aria-label="Slide 4"><span class="testi-dash-progress"></span></button>
+          </div>
+
+          <!-- Wide Author Bar with Avatar, Name, and Arrow Controls -->
+          <div class="testi-author-bar">
+            <div class="testi-author-left">
+              <div class="testi-avatar-dot" id="testiAvatarDot"></div>
+              <span class="testi-author-name" id="testiName">Alex M. &mdash; Product Designer</span>
+            </div>
+            <div class="testi-nav-arrows">
+              <button type="button" class="testi-nav-btn" id="testiPrevBtn" aria-label="Previous testimonial">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+              </button>
+              <button type="button" class="testi-nav-btn" id="testiNextBtn" aria-label="Next testimonial">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FREQUENTLY ASKED QUESTIONS SECTION (Framed card on city background, flush bottom) -->
+    <section class="faq-outer-section fm-scroll-section" id="faq">
+      <div class="faq-frame-card fm-scroll-card">
+        <div class="faq-card-header">
+          <div class="faq-card-header-left">
+            <div class="badge-wrapper"><span class="pill-badge">Questions</span></div>
+            <h2 class="faq-card-title reading-title">Frequently<br>asked Question</h2>
+          </div>
+          <div class="faq-card-header-right">
+            <p class="faq-card-subtitle">Can't find the answer you're looking for? Reach out to our team we'd be happy to assist you.</p>
+            <a href="#contact" class="faq-contact-btn-link">Contact our team &rarr;</a>
+          </div>
+        </div>
+
+        <div class="faq-accordion-group" id="faqAccordion">
+          <div class="faq-accordion-item is-open" data-faq="0">
+            <button type="button" class="faq-accordion-trigger" aria-expanded="true">
+              <span class="faq-q-text">Is Talorify free?</span>
+              <span class="faq-icon-bubble" aria-hidden="true">
+                <svg class="faq-svg-minus" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <svg class="faq-svg-plus" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </button>
+            <div class="faq-accordion-panel">
+              <p>There is a Free plan with 6 tailorings and 3 cover letters a day. Talorify Pro has generous daily limits: 30 tailorings, 30 cover letters and 10 interview preps a day. Limits start again at midnight in your own time zone, and a generation that fails is never counted. It is $9 for one month, $24 for three months, or $90 for twelve months.</p>
+            </div>
+          </div>
+
+          <div class="faq-accordion-item" data-faq="1">
+            <button type="button" class="faq-accordion-trigger" aria-expanded="false">
+              <span class="faq-q-text">Will it make things up about me?</span>
+              <span class="faq-icon-bubble" aria-hidden="true">
+                <svg class="faq-svg-minus" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <svg class="faq-svg-plus" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </button>
+            <div class="faq-accordion-panel">
+              <p>No. Talorify only reshapes what is already on your resume. It never invents experience or skills, and it never changes your name, contact details, education, projects or certifications.</p>
+            </div>
+          </div>
+
+          <div class="faq-accordion-item" data-faq="2">
+            <button type="button" class="faq-accordion-trigger" aria-expanded="false">
+              <span class="faq-q-text">Which job sites does it work on?</span>
+              <span class="faq-icon-bubble" aria-hidden="true">
+                <svg class="faq-svg-minus" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <svg class="faq-svg-plus" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </button>
+            <div class="faq-accordion-panel">
+              <p>It spots jobs on most major job boards and company career pages, including LinkedIn, Indeed and Greenhouse. If a page is not recognised, paste the job description and carry on.</p>
+            </div>
+          </div>
+
+          <div class="faq-accordion-item" data-faq="3">
+            <button type="button" class="faq-accordion-trigger" aria-expanded="false">
+              <span class="faq-q-text">What kind of resume can I upload?</span>
+              <span class="faq-icon-bubble" aria-hidden="true">
+                <svg class="faq-svg-minus" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <svg class="faq-svg-plus" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </button>
+            <div class="faq-accordion-panel">
+              <p>A PDF. If it is a scan or a file with no selectable text, Talorify reads the pages as pictures instead.</p>
+            </div>
+          </div>
+
+          <div class="faq-accordion-item" data-faq="4">
+            <button type="button" class="faq-accordion-trigger" aria-expanded="false">
+              <span class="faq-q-text">Who sees my resume?</span>
+              <span class="faq-icon-bubble" aria-hidden="true">
+                <svg class="faq-svg-minus" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <svg class="faq-svg-plus" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </button>
+            <div class="faq-accordion-panel">
+              <p>Only you. To write the tailored version, your resume and the job are sent to an AI service, and only for that. We do not sell or rent your data. Read the details in our <a href="/privacy" class="legal-link">Privacy Policy</a>.</p>
+            </div>
+          </div>
+
+          <div class="faq-accordion-item" data-faq="5">
+            <button type="button" class="faq-accordion-trigger" aria-expanded="false">
+              <span class="faq-q-text">How does Pro work?</span>
+              <span class="faq-icon-bubble" aria-hidden="true">
+                <svg class="faq-svg-minus" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <svg class="faq-svg-plus" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </button>
+            <div class="faq-accordion-panel">
+              <p>Pro is a pass for 1 week, 1 month or 3 months, paid once. It does not renew by itself, so there is nothing to cancel. You can add more time whenever you like.</p>
+            </div>
+          </div>
+
+          <div class="faq-accordion-item" data-faq="6">
+            <button type="button" class="faq-accordion-trigger" aria-expanded="false">
+              <span class="faq-q-text">What if Pro is not for me?</span>
+              <span class="faq-icon-bubble" aria-hidden="true">
+                <svg class="faq-svg-minus" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <svg class="faq-svg-plus" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </button>
+            <div class="faq-accordion-panel">
+              <p>Ask within 7 days of paying and you get a full refund. See our <a href="/refund" class="legal-link">Refund Policy</a>.</p>
+            </div>
+          </div>
+
+          <div class="faq-accordion-item" data-faq="7">
+            <button type="button" class="faq-accordion-trigger" aria-expanded="false">
+              <span class="faq-q-text">When can I get it?</span>
+              <span class="faq-icon-bubble" aria-hidden="true">
+                <svg class="faq-svg-minus" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <svg class="faq-svg-plus" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </button>
+            <div class="faq-accordion-panel">
+              <p>We are letting people in from the waitlist first, a few at a time. Join now and we will email you when your turn comes.</p>
             </div>
           </div>
         </div>
@@ -211,166 +832,178 @@
     </section>
 
     <!-- CONTACT US SECTION ("Still have questions?") -->
-    <section class="contact-section reveal-on-scroll" id="contact">
+    <section class="contact-section fm-scroll-section" id="contact">
       <div class="contact-container">
-        <!-- Stacked Card Depth Effect -->
-        <div class="card-stack-deck">
-          <!-- Back Stack Layer 2 -->
-          <div class="card-layer card-layer-back" aria-hidden="true"></div>
-          <!-- Mid Stack Layer 1 -->
-          <div class="card-layer card-layer-mid" aria-hidden="true"></div>
+        <!-- Main Interactive Contact Card (Clean single card, NO shadow, NO top logo) -->
+        <div class="contact-main-card fm-scroll-card">
+          <h2 class="contact-card-title">Still have questions?</h2>
+          <p class="contact-card-subtitle">
+            Can't find the answer you're looking for? Reach out to our team we'd be happy to assist you with your waitlist.
+          </p>
 
-          <!-- Foreground Interactive Contact Card -->
-          <div class="contact-main-card">
-            <!-- Brand Logo centered at top -->
-            <div class="contact-card-brand">
-              <img src="assets/Brand logo.png" alt="Talorify" class="contact-logo-img" />
+          <form class="contact-form" id="contactForm" action="https://formspree.io/f/xyeylwry" method="POST">
+            <div class="form-group">
+              <label for="contactEmail" class="form-label">Email</label>
+              <input
+                type="email"
+                id="contactEmail"
+                name="email"
+                class="form-input"
+                placeholder="yourcompany@email.com"
+                required
+                autocomplete="email"
+              />
             </div>
 
-            <h2 class="contact-card-title">Still have questions?</h2>
-            <p class="contact-card-subtitle">
-              Can't find the answer you're looking for? Reach out to our team we'd be happy to assist you with your waitlist.
-            </p>
+            <div class="form-group">
+              <label for="contactName" class="form-label">Full name</label>
+              <input
+                type="text"
+                id="contactName"
+                name="name"
+                class="form-input"
+                placeholder="your name"
+                required
+                autocomplete="name"
+              />
+            </div>
 
-            <form class="contact-form" id="contactForm" action="https://formspree.io/f/xyeylwry" method="POST">
-              <div class="form-group">
-                <label for="contactEmail" class="form-label">Email</label>
-                <input
-                  type="email"
-                  id="contactEmail"
-                  name="email"
-                  class="form-input"
-                  placeholder="yourcompany@email.com"
-                  required
-                  autocomplete="email"
-                />
-              </div>
+            <div class="form-group">
+              <label for="contactQuestion" class="form-label">Questions</label>
+              <textarea
+                id="contactQuestion"
+                name="message"
+                rows="4"
+                class="form-input form-textarea"
+                placeholder="How can we help?"
+                required
+              ></textarea>
+            </div>
 
-              <div class="form-group">
-                <label for="contactName" class="form-label">Full name</label>
-                <input
-                  type="text"
-                  id="contactName"
-                  name="name"
-                  class="form-input"
-                  placeholder="your name"
-                  required
-                  autocomplete="name"
-                />
-              </div>
+            <button type="submit" class="btn-pill-black contact-submit-btn" id="contactSubmitBtn">
+              <span class="btn-text">Contact us</span>
+            </button>
 
-              <div class="form-group">
-                <label for="contactQuestion" class="form-label">Questions</label>
-                <textarea
-                  id="contactQuestion"
-                  name="message"
-                  rows="4"
-                  class="form-input form-textarea"
-                  placeholder="How can we help?"
-                  required
-                ></textarea>
-              </div>
+            <div class="contact-faqs-link-wrapper">
+              <a href="#faq" class="contact-faqs-link">Read the questions</a>
+            </div>
 
-              <button type="submit" class="btn-pill-black contact-submit-btn" id="contactSubmitBtn">
-                <span class="btn-text">Contact us</span>
-              </button>
-
-              <div class="contact-faqs-link-wrapper">
-                <a href="#faqModal" class="contact-faqs-link" id="faqLink">Click here to faqs</a>
-              </div>
-
-              <div class="form-feedback" id="contactFeedback" role="alert" aria-live="polite"></div>
-            </form>
-          </div>
+            <div class="form-feedback" id="contactFeedback" role="alert" aria-live="polite"></div>
+          </form>
         </div>
       </div>
     </section>
 
-    <!-- FOOTER / BOTTOM CTA SECTION -->
-    <section class="footer-cta-section reveal-on-scroll" id="footerCta">
-      <div class="footer-cta-container">
-        <h2 class="footer-cta-heading">
-          Your next interview<br />
-          could start here.
-        </h2>
+    <!-- BOTTOM CTA & LUSH GRASS FOOTER WRAPPER -->
+    <div class="footer-grass-wrapper">
+      <section class="footer-cta-section fm-scroll-section" id="footerCta">
+        <div class="footer-cta-container fm-scroll-card">
+          <h2 class="footer-cta-heading">
+            Your next interview start here.
+          </h2>
 
-        <p class="footer-cta-subheading">
-          Join the Tailorify waitlist and be among the first to tailor smarter, apply faster, and get paid what you're worth.
-        </p>
+          <p class="footer-cta-subheading">
+            Stop getting blocked by automated filters. tailor your application in seconds, and get your resume seen by real humans.
+          </p>
 
-        <!-- Bottom Waitlist Pill Form -->
-        <form class="waitlist-pill-form" id="bottomWaitlistForm" novalidate>
-          <div class="pill-input-wrapper">
-            <input
-              type="email"
-              name="email"
-              id="bottomEmailInput"
-              class="pill-input"
-              placeholder="email@company.com"
-              required
-              autocomplete="email"
-              aria-label="Email address for waitlist"
-            />
-            <button type="submit" class="btn-pill-black form-submit-btn" id="bottomSubmitBtn">
-              <span class="btn-text">Join waitlist</span>
-            </button>
-          </div>
-          <div class="form-feedback" id="bottomFeedback" role="alert" aria-live="polite"></div>
-        </form>
-      </div>
-
-      <!-- Footer Bottom Navigation & Copyright Bar -->
-      <footer class="site-footer">
-        <div class="footer-bar-container">
-          <div class="footer-bar-top">
-            <div class="footer-brand">
-              <img src="assets/Brand logo.png" alt="Talorify" class="footer-logo-img" />
-            </div>
-            <div class="footer-creator">
-              <span>A product by Kre8mind</span>
-            </div>
+          <div class="bottom-cta-actions">
+            <a href="https://chromewebstore.google.com/" target="_blank" rel="noopener" class="btn-pill-black btn-with-arrow footer-add-chrome-btn" data-cta>
+              <span class="btn-text">Get Talorify</span>
+              <span class="btn-arrow-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </span>
+            </a>
           </div>
 
-          <hr class="footer-bar-divider" />
+          <!-- Bottom Waitlist Form (hidden fallback) -->
+          <form class="waitlist-pill-form" id="bottomWaitlistForm" style="display:none;" novalidate>
+            <input type="email" name="email" id="bottomEmailInput" />
+            <button type="submit" id="bottomSubmitBtn">Get Talorify</button>
+            <div id="bottomFeedback"></div>
+          </form>
+        </div>
+      </section>
 
-          <div class="footer-bar-bottom">
-            <div class="footer-copyright">
-              <span>&copy; 2026 Tailorify. All rights reserved.</span>
-            </div>
-            <div class="footer-legal">
-              <a href="#privacy" class="legal-link" id="privacyLink">Privacy Policy</a>
-              <span class="legal-dot">&bull;</span>
-              <a href="#terms" class="legal-link" id="termsLink">Terms of Service</a>
-            </div>
+      <footer class="footer-card" id="siteFooter">
+        <div class="footer-grid-top">
+          <!-- Col 1: Brand & Tagline -->
+          <div class="footer-col-brand">
+            <a href="#hero" class="footer-logo-link" aria-label="Talorify Home">
+              <img src="assets/brand full logo.svg" alt="Talorify" class="footer-logo-img" />
+            </a>
+            <p class="footer-brand-bio">
+              The human-first AI to beat ATS filters & land interviews.
+            </p>
+            <a href="mailto:hellotalorify@kre8mind.com" class="footer-email-pill">
+              <span class="footer-email-tag">E-mail</span>
+              <span class="footer-email-val">hellotalorify@kre8mind.com</span>
+            </a>
+          </div>
+
+          <!-- Col 2: Quick Links -->
+          <div class="footer-col footer-col-links">
+            <h4 class="footer-col-title">Quick Links</h4>
+            <ul class="footer-nav-list">
+              <li><a href="#problem" class="footer-nav-link">Problem</a></li>
+              <li><a href="#how-it-works" class="footer-nav-link">Process</a></li>
+              <li><a href="#who" class="footer-nav-link">Audience</a></li>
+              <li><a href="#features" class="footer-nav-link">Features</a></li>
+              <li><a href="#promise" class="footer-nav-link">Our Promise</a></li>
+              <li><a href="#pricing" class="footer-nav-link">Pricing</a></li>
+              <li><a href="#testimonials" class="footer-nav-link">Testimonials</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 3: Support -->
+          <div class="footer-col footer-col-support">
+            <h4 class="footer-col-title">Support</h4>
+            <ul class="footer-nav-list">
+              <li><a href="#faq" class="footer-nav-link">FAQs</a></li>
+              <li><a href="#contact" class="footer-nav-link">Contact Us</a></li>
+              <li><a href="mailto:hellotalorify@kre8mind.com?subject=Bug%20Report" class="footer-nav-link">Report a bug</a></li>
+              <li><a href="/help" class="footer-nav-link">Help Center</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Social Icons (LinkedIn, Product Hunt, X) & Creator on the same row -->
+        <div class="footer-mid-row">
+          <div class="footer-social-row">
+            <a href="https://www.linkedin.com/company/talorify/" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0 0-3.28 1.64 1.64 0 0 0 0 3.28m1.4 9.74V9.93H5.06v8.57h2.8z"/></svg>
+            </a>
+            <a href="https://www.producthunt.com/products/talorify" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Product Hunt">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14.5h-2.5V7.5H13c1.93 0 3.5 1.57 3.5 3.5s-1.57 3.5-3.5 3.5zm0-4.5h-1V10h1c.55 0 1 .45 1 1s-.45 1-1 1z"/></svg>
+            </a>
+            <a href="https://x.com/Talorify" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="X (Twitter)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+          <div class="footer-creator-text">
+            <a href="https://kre8mind.com" target="_blank" rel="noopener noreferrer" class="footer-creator-link">A product by Kre8mind</a>
+          </div>
+        </div>
+
+        <hr class="footer-card-divider" />
+
+        <div class="footer-bar-bottom">
+          <div class="footer-copyright">
+            <span>&copy; 2026 Talorify. All rights reserved.</span>
+          </div>
+          <div class="footer-legal">
+            <a href="/privacy" class="legal-link">Privacy Policy</a>
+            <span class="legal-dot">&bull;</span>
+            <a href="/terms" class="legal-link">Terms of Service</a>
+            <span class="legal-dot">&bull;</span>
+            <a href="/refund" class="legal-link">Refund Policy</a>
           </div>
         </div>
       </footer>
-    </section>
-  </main>
-
-  <!-- FAQ Modal Dialog -->
-  <dialog class="simple-modal" id="faqModal" aria-labelledby="faqModalTitle">
-    <div class="modal-card">
-      <div class="modal-top">
-        <h3 id="faqModalTitle">Frequently Asked Questions</h3>
-        <button type="button" class="modal-close" id="faqCloseBtn" aria-label="Close modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <div class="faq-item">
-          <h4>What is Tailorify?</h4>
-          <p>Tailorify is an intelligent browser companion that analyzes job descriptions in real-time and tailors your resume with the exact ATS keywords recruiters look for.</p>
-        </div>
-        <div class="faq-item">
-          <h4>When is the official release?</h4>
-          <p>We are currently granting early access on a rolling basis. Joining the waitlist guarantees your spot in the private beta release.</p>
-        </div>
-        <div class="faq-item">
-          <h4>Does it alter my true qualifications?</h4>
-          <p>No. Tailorify never invents false experience. It intelligently rephrases, emphasizes, and weaves existing skills to match applicant tracking systems seamlessly.</p>
-        </div>
-      </div>
     </div>
-  </dialog>
+  </main>
 
   <!-- Customized Celebration Modal Dialog -->
   <dialog class="simple-modal celebration-modal" id="celebrationModal" aria-labelledby="celebrationModalTitle">
@@ -378,7 +1011,7 @@
       <button type="button" class="modal-close celebration-close" id="celebrationCloseBtn" aria-label="Close dialog">&times;</button>
       
       <div class="celebration-brand">
-        <img src="assets/Brand logo.png" alt="Talorify" class="celebration-logo" />
+        <img src="assets/brand full logo.svg" alt="Talorify" class="celebration-logo" />
       </div>
 
       <div class="celebration-check-circle" aria-hidden="true">
@@ -405,6 +1038,9 @@
     </div>
   </dialog>
 
+  <!-- The same one button, following you down the page on a phone -->
+  <div class="sticky-cta" id="stickyCta"><a href="#hero" class="btn-pill-black scroll-to-waitlist" data-cta>Join waitlist</a></div>
+
   <!-- Toast Notification Container -->
   <div class="toast-container" id="toastContainer" aria-live="assertive" aria-atomic="true"></div>
 
@@ -417,7 +1053,22 @@
   <!-- Framer Motion Engine for JavaScript (Motion) -->
   <script src="https://unpkg.com/motion@13.2.0/dist/motion.js"></script>
 
+  <!-- Launch switch: waitlist now, "Add to Chrome" on launch day -->
+  <script src="launch.js"></script>
+
   <!-- Application Logic & Motion Controller -->
   <script src="app.js"></script>
+
+  <!-- The demo, the reveals and the sticky button -->
+  <script src="landing.js"></script>
+
+  <!-- "How it works": pinned scroll, hand-rolled (see the file's own header for the Lenis note) -->
+  <script src="how-it-works.js"></script>
+
+  <!-- Features Timeline: scroll-linked liquid spine and staggered node float -->
+  <script src="features-timeline.js"></script>
+
+  <!-- "Who it's for": four-card rotating carousel, hand-rolled (see the file's own header) -->
+  <script src="who-carousel.js"></script>
 </body>
 </html>
