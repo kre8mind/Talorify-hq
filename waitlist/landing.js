@@ -242,11 +242,19 @@
     if (!slides.length) return;
 
     var authors = [
-      { name: "Alex M. — Product Designer" },
-      { name: "Sarah K. — Frontend Engineer" },
-      { name: "Marcus T. — Career Transitioner" },
-      { name: "Elena R. — Growth & Marketing" }
+      { person: "Alex M.", role: "Product Designer" },
+      { person: "Sarah K.", role: "Frontend Engineer" },
+      { person: "Marcus T.", role: "Career Transitioner" },
+      { person: "Elena R.", role: "Growth & Marketing" }
     ];
+
+    function renderAuthor(author) {
+      if (!author) return '';
+      if (author.person && author.role) {
+        return '<span class="testi-author-person">' + author.person + '</span> <span class="testi-author-sep" aria-hidden="true">|</span> <span class="testi-author-role">' + author.role + '</span>';
+      }
+      return author.person || author.name || '';
+    }
 
     // Optionally load dynamic testimonials from Supabase if published
     try {
@@ -264,11 +272,10 @@
                   if (idx < slides.length) {
                     var quoteP = slides[idx].querySelector('.testi-quote-text');
                     if (quoteP && item.quote) quoteP.innerHTML = '&ldquo;' + item.quote + '&rdquo;.';
-                    var authorStr = item.author_name + (item.author_role ? ' — ' + item.author_role : '');
-                    authors[idx] = { name: authorStr };
+                    authors[idx] = { person: item.author_name, role: item.author_role || '' };
                   }
                 });
-                if (nameEl && authors[current]) nameEl.textContent = authors[current].name;
+                if (nameEl && authors[current]) nameEl.innerHTML = renderAuthor(authors[current]);
               }
             })
             .catch(function () {});
@@ -331,7 +338,7 @@
       });
 
       if (counter) counter.textContent = (current + 1) + '/' + slides.length;
-      if (nameEl && authors[current]) nameEl.textContent = authors[current].name;
+      if (nameEl && authors[current]) nameEl.innerHTML = renderAuthor(authors[current]);
     }
 
     function next() { show(current + 1); }

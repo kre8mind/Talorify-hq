@@ -1887,6 +1887,24 @@ html.lenis.lenis-stopped { overflow-x: visible !important; overflow-y: visible !
   font-size: 0.96rem;
   font-weight: 600;
   color: var(--color-ink, #191919);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.testi-author-person {
+  color: var(--color-ink, #191919);
+  font-weight: 600;
+}
+
+.testi-author-sep {
+  color: rgba(25, 25, 25, 0.28);
+  font-weight: 400;
+}
+
+.testi-author-role {
+  color: var(--color-text-muted, #71717A);
+  font-weight: 450;
 }
 
 .testi-nav-arrows {
@@ -1972,6 +1990,7 @@ html.lenis.lenis-stopped { overflow-x: visible !important; overflow-y: visible !
   }
   .testi-author-name {
     font-size: 0.85rem;
+    gap: 5px;
   }
   .testi-nav-arrows {
     gap: 6px;
