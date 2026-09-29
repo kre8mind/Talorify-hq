@@ -531,7 +531,7 @@ body.mobile-nav-active {
   position: relative;
   width: 100%;
   background-color: var(--color-surface);
-  background-image: url('assets/hero%20Background%20new.png');
+  background-image: url('assets/hero%20Background%20new.webp');
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
@@ -816,7 +816,7 @@ body.mobile-nav-active {
    ========================================================================== */
 .footer-grass-wrapper {
   position: relative;
-  background-image: url('assets/bACKGROUND FOOTER.png');
+  background-image: url('assets/bACKGROUND FOOTER.webp');
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;

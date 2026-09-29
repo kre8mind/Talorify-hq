@@ -230,7 +230,7 @@
   position: relative;
   aspect-ratio: 2902 / 1948;
   padding: 150px 0 0;
-  background-image: url('assets/hero%20Background%20new.png');
+  background-image: url('assets/hero%20Background%20new.webp');
   background-repeat: no-repeat;
   background-position: top center;
   background-size: cover;
@@ -493,7 +493,7 @@
   overflow: hidden;
   /* The woman needs to show on the right of the frame (the card sits centered now, with visible photo margin
      on every side, so nothing hides her). */
-  background: var(--color-tone-2) url('assets/how-it-works-clean.jpg') no-repeat 78% 38%;
+  background: var(--color-tone-2) url('assets/how-it-works-clean.webp') no-repeat 78% 38%;
   background-size: cover;
   display: grid;
   place-items: center;
@@ -2010,7 +2010,7 @@ html.lenis.lenis-stopped { overflow-x: visible !important; overflow-y: visible !
    ========================================================================== */
 .faq-outer-section {
   position: relative;
-  background-image: url('assets/FAQ BG IMAGE.png');
+  background-image: url('assets/FAQ BG IMAGE.webp');
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;

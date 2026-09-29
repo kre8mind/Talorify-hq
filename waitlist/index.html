@@ -43,6 +43,9 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="landing.css" />
 
+  <!-- Preload Critical Above-the-fold Assets -->
+  <link rel="preload" as="image" href="assets/hero%20Background%20new.webp" type="image/webp" fetchpriority="high" />
+
   <!-- Canvas Confetti for celebratory waitlist signup -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 </head>
@@ -192,11 +195,11 @@
 
         <div class="problem-stage lp-stagger">
           <div class="problem-media">
-            <img src="assets/the problem backgrond.jpg" alt="Someone working at a desk set up outdoors, in the middle of a field" class="problem-media-img" />
+            <img src="assets/the problem backgrond.webp" alt="Someone working at a desk set up outdoors, in the middle of a field" class="problem-media-img" loading="lazy" decoding="async" />
             <div class="problem-card" id="problem-card"
                  data-titles="Using the same resume, everywhere|Getting scanned before a person reads it|Getting skimmed in seconds"
                  data-texts="Tailoring by hand takes an hour you don't have, so it gets skipped, and the job that mattered gets the same resume as the rest.|Many employers use applicant tracking systems that screen resumes before a person sees them. The words and the layout matter.|A recruiter gives a resume moments. If the match to the role isn't obvious right away, it's easy to miss.">
-              <img src="assets/warning.png" alt="" class="problem-warning-icon" aria-hidden="true" />
+              <img src="assets/warning.webp" alt="" class="problem-warning-icon" aria-hidden="true" loading="lazy" decoding="async" />
               <div class="problem-card-content">
                 <h3 class="problem-card-title">Using the same resume, everywhere</h3>
                 <div class="problem-card-rule"></div>
@@ -352,28 +355,28 @@
         <div class="who2-carousel fm-scroll-card" id="whoCarousel">
           <div class="who2-track" id="whoTrack">
             <button class="who2-card" type="button" data-title="Active job seekers">
-              <span class="who2-card-photo"><img src="assets/Active job seekeer.jpg" alt="Active job seekers" loading="lazy"></span>
+              <span class="who2-card-photo"><img src="assets/Active job seekeer.webp" alt="Active job seekers" loading="lazy" decoding="async"></span>
               <span class="who2-card-body">
                 <span class="who2-card-title">Active job seekers</span>
                 <span class="who2-card-desc">Applying to many roles a week and tired of rewriting the same resume over and over.</span>
               </span>
             </button>
             <button class="who2-card" type="button" data-title="Busy professionals">
-              <span class="who2-card-photo"><img src="assets/Busy professionals.jpg" alt="Busy professionals" loading="lazy"></span>
+              <span class="who2-card-photo"><img src="assets/Busy professionals.webp" alt="Busy professionals" loading="lazy" decoding="async"></span>
               <span class="who2-card-body">
                 <span class="who2-card-title">Busy professionals</span>
                 <span class="who2-card-desc">Keep your options open without spending your evenings on resume edits.</span>
               </span>
             </button>
             <button class="who2-card" type="button" data-title="Career changers">
-              <span class="who2-card-photo"><img src="assets/Career changers.jpg" alt="Career changers" loading="lazy"></span>
+              <span class="who2-card-photo"><img src="assets/Career changers.webp" alt="Career changers" loading="lazy" decoding="async"></span>
               <span class="who2-card-body">
                 <span class="who2-card-title">Career changers</span>
                 <span class="who2-card-desc">Show how your experience fits a new field, in the words that field uses.</span>
               </span>
             </button>
             <button class="who2-card" type="button" data-title="New graduates">
-              <span class="who2-card-photo"><img src="assets/Graduate.jpg" alt="New graduates" loading="lazy"></span>
+              <span class="who2-card-photo"><img src="assets/Graduate.webp" alt="New graduates" loading="lazy" decoding="async"></span>
               <span class="who2-card-body">
                 <span class="who2-card-title">New graduates</span>
                 <span class="who2-card-desc">Make limited experience speak clearly to each role you go after.</span>
@@ -588,7 +591,7 @@
 
       <!-- The Grassy Mound with Daisies (Anchored flush at the bottom ending of the section) -->
       <div class="promise-field-bg" aria-hidden="true">
-        <img src="assets/field our promise.png" alt="" class="promise-field-img" />
+        <img src="assets/field our promise.webp" alt="" class="promise-field-img" loading="lazy" decoding="async" />
       </div>
     </section>
 
@@ -635,7 +638,7 @@
           <!-- Pro Card -->
           <article class="plan-card fm-scroll-card plan-card-pro" aria-labelledby="planProName">
             <div class="plan-banner">
-              <img src="assets/pro banner.png" alt="Talorify Pro" class="plan-banner-img">
+              <img src="assets/pro banner.webp" alt="Talorify Pro" class="plan-banner-img" loading="lazy" decoding="async">
             </div>
             <div class="plan-pro-inner">
               <div class="plan-pro-top">
