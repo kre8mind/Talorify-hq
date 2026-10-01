@@ -270,7 +270,7 @@
         }
       } catch (err) {
         if (supportFormStatus) {
-          supportFormStatus.innerHTML = 'There was a problem sending your message. Please email us directly at <a href="mailto:supporttalorify@kre8mind.com" style="text-decoration: underline; color: inherit;">supporttalorify@kre8mind.com</a>.';
+          supportFormStatus.innerHTML = 'There was a problem sending your message. Please email us directly at <a href="mailto:support@talorify.kre8mind.com" style="text-decoration: underline; color: inherit;">support@talorify.kre8mind.com</a>.';
           supportFormStatus.className = 'help-form-status is-error';
         }
       } finally {
