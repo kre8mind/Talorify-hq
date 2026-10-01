@@ -9,7 +9,7 @@
  */
 window.TALORIFY_LAUNCH = {
   live: true,
-  storeUrl: 'https://chromewebstore.google.com/'
+  storeUrl: 'https://chromewebstore.google.com/detail/plijhnefapmblidkjkllbniilaednfnc?utm_source=item-share-cb'
 };
 
 (function () {
