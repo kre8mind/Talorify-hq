@@ -300,33 +300,41 @@
       show(0);
     }
 
-    // Optionally load dynamic testimonials from Supabase if published
-    try {
-      var checkSupabase = function () {
-        var sb = window.supabaseClient || (typeof window.supabase !== 'undefined' && window.supabase.createClient ? window.supabase : null);
-        if (sb && typeof sb.from === 'function') {
-          sb.from('testimonials')
-            .select('*')
-            .eq('is_published', true)
-            .order('display_order', { ascending: true })
-            .then(function (res) {
-              if (res && res.data && res.data.length > 0) {
-                var dynamicList = res.data.map(function (item) {
-                  return {
-                    person: item.author_name,
-                    role: item.author_role || '',
-                    quote: item.quote
-                  };
-                });
-                buildUI(dynamicList);
-              }
-            })
-            .catch(function () {});
+    // Load dynamic testimonials from Supabase in real-time
+    var SUPABASE_URL = "https://lhjhdtvooasdekczhrhe.supabase.co";
+    var SUPABASE_ANON_KEY = "sb_publishable_hVl96h496UcsL4m_f201nw_PAuCf469";
+
+    function fetchTestimonialsFromSupabase() {
+      // 1. Direct HTTPS REST fetch (works instantaneously without waiting for libraries)
+      fetch(SUPABASE_URL + '/rest/v1/testimonials?is_published=eq.true&order=display_order.asc', {
+        headers: {
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': 'Bearer ' + SUPABASE_ANON_KEY
         }
-      };
-      if (document.readyState === 'complete') checkSupabase();
-      else window.addEventListener('load', checkSupabase, { once: true });
-    } catch (e) {}
+      })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (Array.isArray(data) && data.length > 0) {
+          var dynamicList = data.map(function (item) {
+            return {
+              person: item.author_name,
+              role: item.author_role || '',
+              quote: item.quote
+            };
+          });
+          buildUI(dynamicList);
+        }
+      })
+      .catch(function (err) {
+        console.warn('[Talorify] Testimonials direct fetch notice:', err);
+      });
+    }
+
+    // Execute immediately on script load, DOM ready, and window load
+    fetchTestimonialsFromSupabase();
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', fetchTestimonialsFromSupabase);
+    }
 
     function updateProgress(now) {
       if (document.hidden || reduceMotion || slides.length <= 1) {

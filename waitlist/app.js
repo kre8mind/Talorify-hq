@@ -17,6 +17,7 @@ function initSupabase() {
   if (typeof window.supabase !== 'undefined' && typeof window.supabase.createClient === 'function') {
     try {
       supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+      window.supabaseClient = supabaseClient;
       console.log('Talorify: Supabase client initialized successfully.');
     } catch (err) {
       console.warn('Talorify: Could not initialize Supabase client:', err);
