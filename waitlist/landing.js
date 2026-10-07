@@ -242,10 +242,10 @@
     if (!slides.length) return;
 
     var authors = [
-      { person: "Alex M.", role: "Product Designer" },
-      { person: "Sarah K.", role: "Frontend Engineer" },
+      { person: "Xera Creator", role: "Chrome Store Reviewer" },
+      { person: "Emmanuel Anya", role: "Verified User" },
       { person: "Marcus T.", role: "Career Transitioner" },
-      { person: "Elena R.", role: "Growth & Marketing" }
+      { person: "Sarah K.", role: "Software Engineer" }
     ];
 
     function renderAuthor(author) {
