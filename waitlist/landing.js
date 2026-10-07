@@ -229,24 +229,36 @@
     });
   })();
 
-  /* ---------- 8. Testimonials Slider with Fluid Progress Indicators & Controls (Image 4) ---------- */
+  /* ---------- 8. Testimonials Slider with Fluid Progress Indicators & Controls ---------- */
   (function () {
-    var slides = Array.prototype.slice.call(document.querySelectorAll('.testi-slide'));
-    var dashes = Array.prototype.slice.call(document.querySelectorAll('.testi-dash'));
+    var viewport = document.querySelector('.testi-quote-viewport');
+    var dashesContainer = document.getElementById('testiDashes');
     var counter = document.getElementById('testiCounter');
     var nameEl = document.getElementById('testiName');
     var prevBtn = document.getElementById('testiPrevBtn');
     var nextBtn = document.getElementById('testiNextBtn');
-    var cardContainer = document.querySelector('.testi-card-container');
-    var section = document.getElementById('testimonials');
-    if (!slides.length) return;
+    if (!viewport || !dashesContainer) return;
 
-    var authors = [
-      { person: "Xera Creator", role: "Chrome Store Reviewer" },
-      { person: "Emmanuel Anya", role: "Verified User" },
-      { person: "Marcus T.", role: "Career Transitioner" },
-      { person: "Sarah K.", role: "Software Engineer" }
+    var defaultTestimonials = [
+      {
+        person: "Xera Creator",
+        role: "Chrome Store Reviewer",
+        quote: "I started using this not quite long, but it is incredibly easy to use. The best part is that it doesn't fabricate fake experience, it stays 100% authentic to what's actually on my resume. Amazing job to the team who built this"
+      },
+      {
+        person: "Emmanuel Anya",
+        role: "Verified User",
+        quote: "This is a nice extension! The way it analyzes a job application and your resume, helping you create an ATS-ready resume from your experience &mdash; that one is peak quality, nice extension."
+      }
     ];
+
+    var testimonials = defaultTestimonials.slice();
+    var slides = [];
+    var dashes = [];
+    var current = 0;
+    var duration = 5000; // 5 seconds per slide
+    var startTime = null;
+    var animFrame = null;
 
     function renderAuthor(author) {
       if (!author) return '';
@@ -254,6 +266,38 @@
         return '<span class="testi-author-person">' + author.person + '</span> <span class="testi-author-sep" aria-hidden="true">|</span> <span class="testi-author-role">' + author.role + '</span>';
       }
       return author.person || author.name || '';
+    }
+
+    function buildUI(items) {
+      testimonials = items;
+      viewport.innerHTML = '';
+      dashesContainer.innerHTML = '';
+
+      items.forEach(function (item, idx) {
+        var slide = document.createElement('div');
+        slide.className = 'testi-slide' + (idx === 0 ? ' is-active' : '');
+        slide.setAttribute('data-slide', idx);
+        var p = document.createElement('p');
+        p.className = 'testi-quote-text';
+        p.innerHTML = '&ldquo;' + item.quote + '&rdquo;.';
+        slide.appendChild(p);
+        viewport.appendChild(slide);
+
+        var dash = document.createElement('button');
+        dash.type = 'button';
+        dash.className = 'testi-dash' + (idx === 0 ? ' is-active' : '');
+        dash.setAttribute('data-dash', idx);
+        dash.setAttribute('aria-label', 'Slide ' + (idx + 1));
+        var fill = document.createElement('span');
+        fill.className = 'testi-dash-progress';
+        dash.appendChild(fill);
+        dash.addEventListener('click', function () { show(idx); });
+        dashesContainer.appendChild(dash);
+      });
+
+      slides = Array.prototype.slice.call(viewport.querySelectorAll('.testi-slide'));
+      dashes = Array.prototype.slice.call(dashesContainer.querySelectorAll('.testi-dash'));
+      show(0);
     }
 
     // Optionally load dynamic testimonials from Supabase if published
@@ -265,17 +309,16 @@
             .select('*')
             .eq('is_published', true)
             .order('display_order', { ascending: true })
-            .limit(slides.length)
             .then(function (res) {
               if (res && res.data && res.data.length > 0) {
-                res.data.forEach(function (item, idx) {
-                  if (idx < slides.length) {
-                    var quoteP = slides[idx].querySelector('.testi-quote-text');
-                    if (quoteP && item.quote) quoteP.innerHTML = '&ldquo;' + item.quote + '&rdquo;.';
-                    authors[idx] = { person: item.author_name, role: item.author_role || '' };
-                  }
+                var dynamicList = res.data.map(function (item) {
+                  return {
+                    person: item.author_name,
+                    role: item.author_role || '',
+                    quote: item.quote
+                  };
                 });
-                if (nameEl && authors[current]) nameEl.innerHTML = renderAuthor(authors[current]);
+                buildUI(dynamicList);
               }
             })
             .catch(function () {});
@@ -285,13 +328,8 @@
       else window.addEventListener('load', checkSupabase, { once: true });
     } catch (e) {}
 
-    var current = 0;
-    var duration = 5000; // 5 seconds per slide
-    var startTime = null;
-    var animFrame = null;
-
     function updateProgress(now) {
-      if (document.hidden || reduceMotion) {
+      if (document.hidden || reduceMotion || slides.length <= 1) {
         animFrame = requestAnimationFrame(updateProgress);
         return;
       }
@@ -322,6 +360,7 @@
     }
 
     function show(index) {
+      if (!slides.length) return;
       current = (index + slides.length) % slides.length;
       startTime = performance.now();
 
@@ -338,21 +377,17 @@
       });
 
       if (counter) counter.textContent = (current + 1) + '/' + slides.length;
-      if (nameEl && authors[current]) nameEl.innerHTML = renderAuthor(authors[current]);
+      if (nameEl && testimonials[current]) nameEl.innerHTML = renderAuthor(testimonials[current]);
     }
 
     function next() { show(current + 1); }
     function prev() { show(current - 1); }
 
-    dashes.forEach(function (dash, i) {
-      dash.addEventListener('click', function () { show(i); });
-    });
-
     if (prevBtn) prevBtn.addEventListener('click', prev);
     if (nextBtn) nextBtn.addEventListener('click', next);
 
-    // Continuous motion without pause-on-hover as requested by user
-    show(0);
+    // Initial build from default testimonials
+    buildUI(defaultTestimonials);
     animFrame = requestAnimationFrame(updateProgress);
 
     document.addEventListener('visibilitychange', function () {
