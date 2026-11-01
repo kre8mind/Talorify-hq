@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://talorify.kre8mind.com/sitemap.xml
